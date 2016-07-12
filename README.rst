@@ -16,9 +16,9 @@ Development
 ~~~~~~~~~~~
 
 This site uses wok_. To install wok and other dependencies, run
-``pip install -r requirements.txt``. wok currently only works with Python2.7.
+``pip install -r requirements.txt``. wok currently only works with Python 2.7.
 
-wok build the site by assembling several components:
+wok builds the site by assembling several components:
 
 * Pages are found in ``content/``. Pages may be HTML, Markdown_ or reStrcturedText_, and contain some YAML metadata.
 * Statuc files are found in ``media/``.
