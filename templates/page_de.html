@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block secret %}
+Herzliche Glückwünsche! Sie haben "the source" gefunden. :-)
+
+Sie sind offensichtlich neugierig ~ und das ist eine gute Sache. Wenn du wissen
+willst wie wirklich diese Seite funktioniert, sollten Sie besuchen:
+
+https://github.com/python/pythonineducation.org
+
+Wir freuen uns über Beiträge von jedem, egal, wer Sie sind. Wenn du bist
+denken, "aber sie bedeuten mir nicht", MEINEN WIR iHNEN BESONDERS. Für mehr
+Informationen finden Sie unter:
+
+https://github.com/python/pythonineducation.org/blob/master/CONTRIBUTING.rst
+
+Die besten Wünsche!
+{% endblock %}
+
+{% block header %}
+<header>
+    <!-- Ein Header auf Deutsch -->
+</header>
+{% endblock %}
+
+{% block content %}
+    {{ page.content }}
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <!-- Eine Fußzeile auf Deutsch -->
+</footer>
+{% endblock %}

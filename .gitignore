@@ -1,0 +1,7 @@
+.venv
+output
+.sass-cache
+*.swp
+*.pyc
+
+.DS_Store
