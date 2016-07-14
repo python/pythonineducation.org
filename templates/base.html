@@ -1,25 +1,135 @@
 <!DOCTYPE html>
 <!--
 {% block secret %}{% endblock %}
---!>
+-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="X-Clacks-Overhead" content="GNU John Pinner">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+      <title>PythonInEducation - {{ page.title }}</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="X-Clacks-Overhead" content="GNU John Pinner">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/bootstrap-extended.css">
+      <link rel="stylesheet" href="/css/main.css">
+      <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+      <script type="text/javascript">
+      window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
+      </script>
+      <script src="/js/bootstrap.min.js"></script>
+      <!--[if lt IE 9]>
+      <script src="/js/modernizr.js"></script>
+      <![endif]-->
+  </head>
+  <body class="home">
+    <div id="wrapper">
+      {% block header %}
+        <header id="header">
+          <nav class="navbar navbar-default">
+            <div class="header-holder">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img alt="Python In Education" src="images/logo.png"></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">learn</a></li>
+                    <li><a href="#">build</a></li>
+                    <li><a href="#">teach</a></li>
+                    <li><a href="#">micro:bit</a></li>
+                    <li><a href="#">raspberry_pi</a></li>
+                  </ul>
+                  <div class="link-holder">
+                    <a class="language-link" href="#"><img alt="english" src="images/bg-flag.png"><span>Change language</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+      {% endblock %}
 
-        <title>{{ page.title }}</title>
+      <main role="main" id="main">
+      {% block content %}{% endblock %}
+      </main>
+    </div>
 
-        <link href="/css/styles.css" rel="stylesheet" />
-        <!--[if lt IE 9]>
-        <script src="/js/modernizr.js"></script>
-        <![endif]-->
-    </head>
-    <body class="home">
-        {% block header %}{% endblock %}
-        {% block content %}{% endblock %}
-        {% block footer %}{% endblock %}
-    </body>
-    <!-- Python Powered! -->
+
+    {% block footer %}
+      <div id="footer">
+        <div class="footer-frame">
+          <span class="sticker"></span>
+          <div class="container-fluid">
+            <div class="col-copy">
+              <a href="#" class="logo-footer"><img alt="Python In Education" src="images/logo.png"></a>
+              <div class="copy">
+                <p>&copy; 2016 PyCon UK. <br>All rights reserved</p>
+                <p>Design by Blanc</p>
+              </div>
+              <a href="#" class="logo-partner"><img alt="Python Software Foundation" src="images/logo-footer.jpg"></a>
+            </div>
+            <div class="footer-nav">
+              <ul>
+                <li>
+                  <a href="#">learn</a>
+                  <ul>
+                    <li><a href="#">editor</a></li>
+                    <li><a href="#">tutorials</a></li>
+                    <li><a href="#">cool stuff</a></li>
+                    <li><a href="#">docs</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">build</a>
+                  <ul>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">teach</a>
+                  <ul>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">micro:bit</a>
+                  <ul>
+                    <li><a href="#">editor</a></li>
+                    <li><a href="#">tutorials</a></li>
+                    <li><a href="#">cool stuff</a></li>
+                    <li><a href="#">docs</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">raspberry pi</a>
+                  <ul>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                    <li><a href="#">this is a link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+  </body>
+  <!-- Python Powered! -->
 </html>
