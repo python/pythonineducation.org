@@ -25,22 +25,22 @@
   <body class="home">
     <div id="wrapper">
       {% block header %}
-        <header id="header">
+        <header id="header" class="header">
           <nav class="navbar navbar-default">
             <div class="header-holder">
               <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                   </button>
+                  <!-- page logo -->
                   <a class="navbar-brand" href="#"><img alt="Python In Education" src="images/logo.png"></a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <!-- main navigation of the page -->
                   <ul class="nav navbar-nav">
                     <li><a href="#">learn</a></li>
                     <li><a href="#">build</a></li>
@@ -48,6 +48,7 @@
                     <li><a href="#">micro:bit</a></li>
                     <li><a href="#">raspberry_pi</a></li>
                   </ul>
+                  <!-- switch language link -->
                   <div class="link-holder">
                     <a class="language-link" href="#"><img alt="english" src="images/bg-flag.png"><span>Change language</span></a>
                   </div>
@@ -66,65 +67,66 @@
 
     {% block footer %}
       <div id="footer">
-        <div class="footer-frame">
-          <span class="sticker"></span>
-          <div class="container-fluid">
+        <div class="footer-section">
+          <div class="footer-frame">
+            <div class="container-fluid">
             <div class="col-copy">
               <a href="#" class="logo-footer"><img alt="Python In Education" src="images/logo.png"></a>
               <div class="copy">
                 <p>&copy; 2016 PyCon UK. <br>All rights reserved</p>
                 <p>Design by Blanc</p>
               </div>
-              <a href="#" class="logo-partner"><img alt="Python Software Foundation" src="images/logo-footer.jpg"></a>
+              <a href="#" class="logo-partner"><img alt="Python Software Fondation" src="images/logo-footer.jpg"></a>
             </div>
-            <div class="footer-nav">
-              <ul>
-                <li>
-                  <a href="#">learn</a>
-                  <ul>
-                    <li><a href="#">editor</a></li>
-                    <li><a href="#">tutorials</a></li>
-                    <li><a href="#">cool stuff</a></li>
-                    <li><a href="#">docs</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">build</a>
-                  <ul>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">teach</a>
-                  <ul>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">micro:bit</a>
-                  <ul>
-                    <li><a href="#">editor</a></li>
-                    <li><a href="#">tutorials</a></li>
-                    <li><a href="#">cool stuff</a></li>
-                    <li><a href="#">docs</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">raspberry pi</a>
-                  <ul>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                    <li><a href="#">this is a link</a></li>
-                  </ul>
-                </li>
-              </ul>
+              <div class="footer-nav">
+                <ul>
+                  <li>
+                    <a href="#">learn</a>
+                    <ul>
+                      <li><a href="#"><span>editor</span></a></li>
+                      <li><a href="#"><span>tutorials</span></a></li>
+                      <li><a href="#"><span>cool stuff</span></a></li>
+                      <li><a href="#"><span>docs</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">build</a>
+                    <ul>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">teach</a>
+                    <ul>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">micro:bit</a>
+                    <ul>
+                      <li><a href="#"><span>editor</span></a></li>
+                      <li><a href="#"><span>tutorials</span></a></li>
+                      <li><a href="#"><span>cool stuff</span></a></li>
+                      <li><a href="#"><span>docs</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">raspberry pi</a>
+                    <ul>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

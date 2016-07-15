@@ -1,3 +1,9 @@
+/* ---------------------------------------------------------
+   1. General reset
+   2. Common site styles
+   3. Styles for responsive breakpoints
+   ---------------------------------------------------------*/
+
 ul,
 .footer-nav > ul,
 .footer-nav > ul > li ul {
@@ -35,6 +41,16 @@ ul,
 	width: device-width;
 }
 
+/* ---------------------------------------------------------
+   1. General reset
+   ---------------------------------------------------------*/
+
+/*
+ * set default text color
+ * set default font size, line height and font family
+ * set default background
+ */
+
 html {
 	height: 100%;
 }
@@ -68,6 +84,8 @@ blockquote {
 	margin: 0 0 20px;
 }
 
+/* set styles for default page links */
+
 a {
 	outline: none !important;
 	-webkit-transition: all .3s ease 0s;
@@ -92,6 +110,8 @@ iframe {
 	vertical-align: top;
 	max-width: 100%;
 }
+
+/* set default styles in all browsers */
 
 textarea {
 	resize: vertical;
@@ -204,14 +224,20 @@ ul li {
 	list-style: none;
 }
 
+/* ---------------------------------------------------------
+   2. Сommon site styles
+   ---------------------------------------------------------*/
+
+/* main container styles */
+
 #wrapper {
 	width: 100%;
 	position: relative;
-	overflow: hidden;
 	display: table-cell;
-	height: 300px;
 	table-layout: fixed;
 }
+
+/* header styles */
 
 #header {
 	position: absolute;
@@ -224,14 +250,16 @@ ul li {
 
 #header:before {
 	position: absolute;
-	top: 100%;
 	bottom: -26px;
+	height: 26px;
 	left: 0;
 	right: 0;
-	background: url(../images/mask-header.png) no-repeat;
-	background-size: cover;
-	background-position: 50% 100%;
+	background: url(../images/mask-header.png) repeat-x 50% 100%;
 	content: "";
+}
+
+#header.active:before {
+	background: url(../images/mask-header-drop.png) repeat-x 50% 100%;
 }
 
 .header-holder {
@@ -244,6 +272,8 @@ ul li {
 	padding-bottom: 0;
 	border: none;
 }
+
+/* page logo styles */
 
 .navbar-brand {
 	margin: 0 !important;
@@ -263,18 +293,14 @@ ul li {
 	margin: 13px 0 0;
 }
 
-.collapse.in .link-holder {
-	position: relative;
-}
-
 .navbar-toggle {
 	float: right;
 	width: 16px;
-	height: 12px;
+	height: 14px;
 	background: none;
 	border-radius: 0 !important;
 	border: none;
-	margin: 8px 10px 0 0;
+	margin: 17px 10px 0 0;
 	padding: 0;
 }
 
@@ -283,11 +309,21 @@ ul li {
 	margin: 0 auto;
 	width: 16px;
 	background: #b53c5e;
-	height: 2px;
+	height: 3px;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 .navbar-toggle .icon-bar + .icon-bar {
-	margin-top: 4px;
+	margin-top: -3px;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.navbar-toggle .icon-bar + .icon-bar + .icon-bar {
+	display: none;
 }
 
 .navbar-toggle.collapsed .icon-bar {
@@ -295,6 +331,7 @@ ul li {
 	-webkit-transform: none;
 	-ms-transform: none;
 	transform: none;
+	height: 2px;
 }
 
 .navbar-toggle.collapsed .icon-bar + .icon-bar {
@@ -302,15 +339,23 @@ ul li {
 	-ms-transform: none;
 	transform: none;
 	margin-top: 4px;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
 }
 
 .navbar-toggle.collapsed .icon-bar + .icon-bar + .icon-bar {
 	display: block;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
 }
 
 .navbar-toggle:hover {
 	opacity: .8;
 }
+
+/* main navigation styles */
 
 .navbar-nav {
 	float: left;
@@ -347,6 +392,8 @@ ul li {
 .link-holder {
 	float: left;
 }
+
+/* switch language links styles */
 
 .language-link {
 	float: left;
@@ -434,7 +481,7 @@ ul li {
 }
 
 .text-section .sticker.sticker-top {
-	top: -59px;
+	top: -36px;
 	right: 23px;
 	bottom: auto;
 	left: auto;
@@ -449,10 +496,14 @@ ul li {
 .about-block,
 .info-section {
 	position: relative;
-	background: url(../images/bg-c.png) no-repeat;
-	background-size: cover;
-	position: relative;
 	z-index: 3;
+}
+
+.section-bg .wrap,
+.text-section .wrap,
+.about-block .wrap,
+.info-section .wrap {
+	background: url(../images/bg-c.jpg);
 }
 
 .section-bg .container-fluid > *,
@@ -487,9 +538,19 @@ ul li {
 .info-section:after {
 	bottom: -50px;
 	top: auto;
-	height: 429px;
+	height: 475px; /* height: 429px; */
 	background: url(../images/bg-b.png) no-repeat 0 100%;
 	background-size: cover;
+}
+
+.title-section .sticker-bottom {
+	left: auto;
+	right: 30px;
+	z-index: 999;
+	bottom: -20px;
+	width: 131px;
+	height: 71px;
+	background: url(../images/label8.png) no-repeat;
 }
 
 .title-section .heading-col {
@@ -507,7 +568,7 @@ ul li {
 }
 
 .title-section .heading-col.separator1:before {
-	top: 13px;
+	top: 10px;
 	left: 23px;
 	background: url(../images/separator1.png) no-repeat;
 	background-size: auto 100%;
@@ -563,9 +624,14 @@ ul li {
 	margin: 0 14px 0 0;
 }
 
+/* main informative part styles */
+
 #main {
 	margin: 0 0 -9px;
+	overflow: hidden;
 }
+
+/* products list styles */
 
 .about-block {
 	padding: 165px 0 63px;
@@ -632,6 +698,7 @@ ul li {
 	vertical-align: top;
 	font-size: 18px;
 	font-weight: normal;
+	text-decoration: none;
 }
 
 .about-block .more:before {
@@ -643,9 +710,17 @@ ul li {
 	margin: 1px 9px 0 0;
 }
 
+.about-block .more span {
+	text-decoration: underline;
+}
+
+.about-block .more:hover span {
+	text-decoration: none;
+}
+
 .sticker {
 	position: absolute !important;
-	bottom: -29px;
+	bottom: -25px;
 	left: 37px;
 	background: url(../images/label1.png) no-repeat;
 	background-position: 50% 50%;
@@ -653,6 +728,8 @@ ul li {
 	width: 163px;
 	height: 54px;
 }
+
+/* product item styles */
 
 .info-section {
 	padding: 49px 0 42px;
@@ -710,6 +787,11 @@ ul li {
 	vertical-align: top;
 	font-size: 18px;
 	font-weight: normal;
+	text-decoration: none;
+}
+
+.info-section .more span {
+	text-decoration: underline;
 }
 
 .info-section .more:before {
@@ -719,6 +801,10 @@ ul li {
 	vertical-align: top;
 	color: #2c2c2c;
 	margin: 1px 9px 0 0;
+}
+
+.info-section .more:hover span {
+	text-decoration: none;
 }
 
 .info-section .sticker {
@@ -760,6 +846,8 @@ ul li {
 	height: 103px;
 }
 
+/* footer styles */
+
 #footer {
 	overflow: hidden;
 	display: table-footer-group;
@@ -767,23 +855,24 @@ ul li {
 	table-layout: fixed;
 }
 
-.footer-frame {
-	background: #000;
+.footer-section {
 	position: relative;
-	padding: 64px 0 103px;
-	font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
-.footer-frame:before {
+.footer-section:before {
 	position: absolute;
-	bottom: 100%;
 	top: -28px;
 	left: 0;
 	right: 0;
-	background: url(../images/mask-footer.png) no-repeat;
-	background-size: cover;
-	background-position: 50% 0;
+	height: 28px;
+	background: url(../images/mask-footer.png) repeat-x 50% 0;
 	content: "";
+}
+
+.footer-frame {
+	background: #000;
+	padding: 64px 0 103px;
+	font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
 .footer-frame .logo-footer {
@@ -849,6 +938,15 @@ ul li {
 
 .footer-nav a {
 	color: #f5da5c;
+	text-decoration: none;
+}
+
+.footer-nav a span {
+	text-decoration: underline;
+}
+
+.footer-nav a:hover span {
+	text-decoration: none;
 }
 
 .footer-nav a:before {
@@ -857,6 +955,26 @@ ul li {
 	vertical-align: top;
 	content: "/";
 	color: #ad244b;
+}
+
+/* ---------------------------------------------------------
+   3. Styles for Responsive web design
+   ---------------------------------------------------------*/
+
+@media only screen and (min-width: 2000px) {
+	.section-bg .wrap,
+	.text-section .wrap,
+	.about-block .wrap,
+	.info-section .wrap {
+		overflow: hidden;
+		width: 100%;
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	.title-section {
+		margin-bottom: -2%;
+	}
 }
 
 @media only screen and (max-width: 1300px) {
@@ -869,13 +987,18 @@ ul li {
 		margin: 0;
 	}
 
+	.title-section .heading-col.separator4 {
+		padding-top: 108px;
+		padding-bottom: 108px;
+	}
+
 	.title-section h1 {
 		font-size: 70px;
 		line-height: 76px;
 	}
 
 	.title-section {
-		background-size: 40% auto !important;
+		background-size: 36% auto !important;
 	}
 
 	.info-section h1 {
@@ -886,32 +1009,25 @@ ul li {
 }
 
 @media only screen and (max-width: 1023px) {
+	#header:before {
+		bottom: -21px;
+	}
+
 	#header {
 		position: relative;
+	}
+
+	.header-holder {
+		padding: 18px 0 5px;
 	}
 
 	.navbar-collapse {
 		margin: 0;
 		float: none;
 		width: auto;
-		margin: 0 -30px !important;
+		margin: 0 -20px !important;
 		background: #1a1a1a;
-	}
-
-	.collapse.in .link-holder {
-		background: #282828;
-	}
-
-	.collapse.in .link-holder:before {
-		position: absolute;
-		top: 100%;
-		bottom: -26px;
-		left: 0;
-		right: 0;
-		background: url(../images/mask-header-drop.png) no-repeat;
-		background-size: cover;
-		background-position: 50% 100%;
-		content: "";
+		border: none !important;
 	}
 
 	.navbar-toggle {
@@ -930,13 +1046,15 @@ ul li {
 
 	.navbar-nav {
 		float: none;
-		padding: 23px 13px 4px;
+		padding: 25px 13px 2px;
+		background: url(../images/top-menu.png) repeat-x;
+		margin: 0;
 	}
 
 	.link-holder {
 		width: 100%;
-		background: #282828;
-		padding: 11px 13px 14px;
+		padding: 13px 13px 5px;
+		background: #282828 url(../images/top-mask.png) repeat-x;
 	}
 
 	.language-link span {
@@ -948,13 +1066,21 @@ ul li {
 		margin: 0;
 	}
 
+	.text-section .sticker.sticker-top {
+		top: -74px;
+	}
+
 	.text-section {
 		text-align: center;
 	}
 
+	.title-section .heading-col.separator4:before {
+		top: 7px;
+	}
+
 	.title-section .heading-col.separator4 {
 		padding-top: 96px;
-		padding-bottom: 76px;
+		padding-bottom: 74px;
 	}
 
 	.title-section .heading-col {
@@ -969,11 +1095,15 @@ ul li {
 
 	.title-section {
 		background-size: 37% auto !important;
-		margin: 0 0 72px;
+		margin: 0 0 17px;
 	}
 
 	.about-block .col {
 		margin-bottom: 38px;
+	}
+
+	.about-block {
+		padding: 100px 0 63px;
 	}
 
 	.info-section .article {
@@ -997,18 +1127,16 @@ ul li {
 		margin: 0 0 20px;
 	}
 
+	.info-section .sticker1 {
+		top: -100px;
+	}
+
 	.footer-nav > ul {
 		font-size: 15px;
 	}
 
 	.footer-nav {
 		width: 65%;
-	}
-}
-
-@media only screen and (max-width: 1023px) and (max-width: 767px) {
-	.navbar-collapse {
-		margin: 0 !important;
 	}
 }
 
@@ -1022,8 +1150,12 @@ ul li {
 		padding-right: 10px;
 	}
 
+	#wrapper {
+		overflow: hidden;
+	}
+
 	#header:before {
-		bottom: -7px;
+		bottom: -17px;
 	}
 
 	.header-holder {
@@ -1039,7 +1171,15 @@ ul li {
 		width: 92px;
 		height: 29px;
 		background: url(../images/logo-mobile.png) no-repeat;
-		margin: 0 0 1px 10px !important;
+		margin: 0 0 0 10px !important;
+	}
+
+	.navbar-collapse {
+		margin: 0 !important;
+	}
+
+	.navbar-toggle {
+		margin: 9px 10px 0 0;
 	}
 
 	.illustration-block {
@@ -1086,6 +1226,13 @@ ul li {
 		margin: 0 0 30px;
 	}
 
+	.section-bg .wrap,
+	.text-section .wrap,
+	.about-block .wrap,
+	.info-section .wrap {
+		background: url(../images/bg-c-mobile.jpg);
+	}
+
 	.section-bg:before,
 	.text-section:before,
 	.about-block:before,
@@ -1094,9 +1241,9 @@ ul li {
 	.text-section:after,
 	.about-block:after,
 	.info-section:after {
-		background: url(../images/bg-t.png) no-repeat;
+		background: url(../images/bg-t-mobile.png) repeat-x;
 		background-size: 100% 100%;
-		height: 150px;
+		height: 146px;
 	}
 
 	.section-bg:after,
@@ -1105,12 +1252,33 @@ ul li {
 	.info-section:after {
 		background: url(../images/bg-b.png) no-repeat 0 100%;
 		background-size: 100% 100%;
-		height: 150px;
+		height: 200px;
+	}
+
+	.title-section .sticker-bottom {
+		background: url(../images/label-mobile.png) no-repeat;
+		background-size: 33px 28px;
+		width: 33px;
+		height: 28px;
+		right: 0;
+		bottom: 0;
+	}
+
+	.title-section .heading-col:before {
+		left: 12px;
+	}
+
+	.title-section .heading-col.separator1:before {
+		left: 12px;
+	}
+
+	.title-section .heading-col.separator4:before {
+		left: 7px;
 	}
 
 	.title-section .heading-col.separator4 {
-		padding-top: 44px;
-		padding-bottom: 28px;
+		padding-top: 35px;
+		padding-bottom: 30px;
 	}
 
 	.title-section .heading-col {
@@ -1132,15 +1300,19 @@ ul li {
 		margin: 0 -36px 0 0;
 	}
 
+	.title-section.center {
+		background-position: 96% 50% !important;
+	}
+
 	.title-section {
-		margin: 0 0 53px;
+		margin: 0 0 51px;
 		padding-left: 13px;
 		background-size: 38% auto !important;
 		background-position: 96% 100% !important;
 	}
 
 	#main {
-		margin: 0 0 -40px;
+		margin: 0 0 -41px;
 	}
 
 	.about-block .image-holder img {
@@ -1149,7 +1321,7 @@ ul li {
 	}
 
 	.about-block .image-holder {
-		max-width: 40%;
+		max-width: 38%;
 		margin: 0 auto 18px;
 		height: auto;
 	}
@@ -1172,8 +1344,16 @@ ul li {
 		margin: 0;
 	}
 
+	.about-block .sticker {
+		bottom: -41px;
+	}
+
+	.about-block .wrap {
+		padding: 48px 0 0;
+	}
+
 	.about-block {
-		padding: 50px 0 23px;
+		padding: 0 0 23px;
 		line-height: 20px;
 	}
 
@@ -1199,7 +1379,7 @@ ul li {
 	}
 
 	.info-section .visual {
-		max-width: 34%;
+		max-width: 38%;
 		margin: 0 auto 18px;
 	}
 
@@ -1228,7 +1408,7 @@ ul li {
 	.info-section .sticker {
 		right: -33px;
 		top: auto;
-		bottom: -60px;
+		bottom: -57px;
 		width: 71px;
 		height: 31px;
 		background: url(../images/label5.png) no-repeat;
