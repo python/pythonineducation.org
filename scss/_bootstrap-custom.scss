@@ -1,0 +1,58 @@
+$white:#fff;
+$dark:#2c2c2c;
+$black:#000;
+$yellow:#f5da5c;
+$red: #ad244b;
+$body-bg: $white;
+$bg-dark:$black;
+$nav-color:$yellow;
+
+$text-color:$dark;
+$link-color:$red;
+
+$screen-md : 1024px;
+$screen-sm: 768px;
+$screen-lg:1301px;
+
+//== Typography
+$base-font-family:Arial, Helvetica, sans-serif;
+$alt-font-family:'Ubuntu', Arial, Helvetica, sans-serif;
+$title-font-family:'Permanent Marker', cursive;
+$font-size-base: 15px;
+$line-height-base: 1.368;
+$headings-font-family:$base-font-family;
+
+//== Grid system
+$grid-gutter-width: 40px;
+$container-tablet: (710px + $grid-gutter-width);
+$container-desktop:  (960px + $grid-gutter-width);
+$container-large-desktop:  (1040px + $grid-gutter-width);
+$grid-float-breakpoint: $screen-md;
+$grid-float-breakpoint-max: $grid-float-breakpoint;
+
+// Basics of a navbar
+$navbar-height:auto;
+$navbar-margin-bottom: 0;
+$navbar-border-radius: 0;
+$navbar-padding-horizontal:0;
+$navbar-padding-vertical: 0;
+$navbar-collapse-max-height:340px;
+
+$navbar-default-color:transparent;
+$navbar-default-bg:rgba(0, 0, 0, 0);
+$navbar-default-border:none;
+
+$nav-link-padding:0;
+$navbar-default-link-color:$nav-color;
+$navbar-default-link-hover-color:$nav-color;
+$navbar-default-link-active-color:$nav-color;
+
+$input-color-placeholder:#000;
+
+$border-radius-base:0;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg: transarent;
+$navbar-default-toggle-icon-bar-bg:#b53c5e;
+$navbar-default-toggle-border-color:#b53c5e;
+$nav-link-padding:0;
