@@ -1,25 +1,27 @@
+{% load markdown_deux_tags %}
+
 <!DOCTYPE html>
 <!--
 {% block secret %}{% endblock %}
 -->
 <html>
   <head>
-      <title>{% block title %}Python In Education - {% endblock %} {{ page.title }}</title>
+      <title>{% block title %}Python In Education - {% endblock %} {{ title }}</title>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta http-equiv="X-Clacks-Overhead" content="GNU John Pinner">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="/css/bootstrap-extended.css">
-      <link rel="stylesheet" href="/css/main.css">
+      <link rel="stylesheet" href="/static/css/bootstrap-extended.css">
+      <link rel="stylesheet" href="/static/css/main.css">
       <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
       <script type="text/javascript">
-      window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
+      window.jQuery || document.write('<script src="/static/js/jquery-1.11.2.min.js"><\/script>')
       </script>
-      <script src="/js/bootstrap.min.js"></script>
+      <script src="/static/js/bootstrap.min.js"></script>
       <!--[if lt IE 9]>
-      <script src="/js/modernizr.js"></script>
+      <script src="/static/js/modernizr.js"></script>
       <![endif]-->
   </head>
   <body class="home">
@@ -37,20 +39,20 @@
                     <span class="icon-bar"></span>
                   </button>
                   <!-- page logo -->
-                  <a class="navbar-brand" href="/en/"><img alt="Python In Education" src="/images/logo.png"></a>
+                  <a class="navbar-brand" href="/{{ language }}/home/"><img alt="Python In Education" src="/static/images/logo.png"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <!-- main navigation of the page -->
                   <ul class="nav navbar-nav">
-                    <li><a href="/en/#learn">learn</a></li>
-                    <li><a href="/en/#teach">teach</a></li>
-                    <li><a href="/en/#build">build</a></li>
-                    <li><a href="#">micro:bit</a></li>
-                    <li><a href="#">raspberry_pi</a></li>
+                    <li><a href="#">learn</a></li>
+                    <li><a href="#">teach</a></li>
+                    <li><a href="#">build</a></li>
+                    <li><a href="/{{ language }}/microbit/">micro:bit</a></li>
+                    <li><a href="/{{ language }}/microbit/">raspberry_pi</a></li>
                   </ul>
                   <!-- switch language link -->
                   <div class="link-holder">
-                    <a class="language-link" href="#"><img alt="english" src="/images/bg-flag.png"><span>Change language</span></a>
+                    <a class="language-link" href="#"><img alt="english" src="/static/images/bg-flag.png"><span>Change language</span></a>
                   </div>
                 </div>
               </div>
@@ -60,7 +62,11 @@
       {% endblock %}
 
       <main role="main" id="main">
-      {% block content %}{% endblock %}
+        {% if content_format == 'md' %}
+          {{ content|markdown }}
+        {% else %}
+          {{ content|safe }}
+        {% endif %}
       </main>
     </div>
 
@@ -71,12 +77,12 @@
           <div class="footer-frame">
             <div class="container-fluid">
             <div class="col-copy">
-              <a href="/en/" class="logo-footer"><img alt="Python In Education" src="/images/logo.png"></a>
+              <a href="/en/" class="logo-footer"><img alt="Python In Education" src="/static/images/logo.png"></a>
               <div class="copy">
                 <p>&copy; 2016 The Python Software Foundation. <br>All rights reserved.</p>
                 <p>Design by <a href="https://www.blanc.ltd.uk/">Blanc</a></p>
               </div>
-              <a href="https://www.python.org/psf-landing/" class="logo-partner"><img alt="Python Software Foundation" src="/images/psf_logo.jpg"></a>
+              <a href="https://www.python.org/psf-landing/" class="logo-partner"><img alt="Python Software Foundation" src="/static/images/psf_logo.jpg"></a>
             </div>
               <div class="footer-nav">
                 <ul>
