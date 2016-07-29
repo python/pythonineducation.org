@@ -43,7 +43,7 @@ $media-expressions: (
 /* ---------------------------------------------------------
    1. General reset
    ---------------------------------------------------------*/
-    
+
 /*
  * set default text color
  * set default font size, line height and font family
@@ -60,6 +60,7 @@ body {
   display: table;
   table-layout: fixed;
   width: 100%;
+  &.content-page { display: block; }
   @media only screen and ( max-width: $screen-sm - 1){
     font-size: 13px;
   }
@@ -216,9 +217,15 @@ h1 {
   position: relative;
   display:table-cell;
   table-layout: fixed;
+  body.content-page & { display: block; }
   @media only screen and ( max-width: $screen-sm - 1){
     overflow: hidden;
   }
+}
+
+.column-wrap {
+  max-width: 1040px;
+  margin: auto;
 }
 
 /* header styles */
@@ -334,7 +341,7 @@ h1 {
     }
     & + .icon-bar + .icon-bar {
       display: none;
-    } 
+    }
   }
   &.collapsed {
     .icon-bar {
@@ -345,11 +352,11 @@ h1 {
         transform:none;
         margin-top:4px;
         transform:none;
-      } 
+      }
       & + .icon-bar + .icon-bar {
         display: block;
         transform:none;
-      } 
+      }
     }
   }
   &:hover {
@@ -405,6 +412,26 @@ h1 {
     padding:25px 13px 2px;
     background:url(../images/top-menu.png) repeat-x;
     margin: 0;
+  }
+}
+
+.subnav {
+  background: url(../images/subnav_bg.jpg) center center repeat-x;
+  text-align: right;
+  padding: 40px 20px 20px 20px;
+  margin-bottom: 20px;
+  li {
+    display: inline-block;
+    margin-left: 20px;
+    a {
+      color: #fff;
+      text-transform: uppercase;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
+  @media only screen and ( min-width: $screen-md ){
+    padding: 120px 20px 20px 20px;
   }
 }
 
@@ -771,9 +798,11 @@ h1 {
 /* main informative part styles */
 #main {
   margin: 0 0 -9px;
+  body.content-page & { margin-bottom: 0; }
   overflow: hidden;
   @media only screen and ( max-width: $screen-sm - 1){
     margin: 0 0 -41px;
+    body.content-page & { margin-bottom: 0; }
   }
 }
 
@@ -1017,7 +1046,7 @@ h1 {
     font-weight: normal;
     text-decoration: none;
     span {
-      text-decoration: underline; 
+      text-decoration: underline;
     }
     &:before {
       content:'>';
@@ -1030,7 +1059,7 @@ h1 {
     }
     &:hover {
       span {
-        text-decoration: none;  
+        text-decoration: none;
       }
     }
     @media only screen and ( max-width: $screen-sm - 1){
@@ -1106,12 +1135,32 @@ h1 {
   }
 }
 
+.footer-banner {
+    padding: 40px 0 60px 0;
+    margin-top: 20px;
+    background: url(../images/stars.png) center center, #e17e79;
+    background: url(../images/stars.png) center center, -moz-linear-gradient(top,  #e17e79 7%, #e2827d 70%, #f0bdbb 100%);
+    background: url(../images/stars.png) center center, -webkit-linear-gradient(top,  #e17e79 7%,#e2827d 70%,#f0bdbb 100%);
+    background: url(../images/stars.png) center center, linear-gradient(to bottom,  #e17e79 7%,#e2827d 70%,#f0bdbb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e17e79', endColorstr='#f0bdbb',GradientType=0 );
+    .push-down { margin-bottom: -250px; }
+}
+
+
 /* footer styles */
 #footer {
     overflow:hidden;
     display:table-footer-group;
     height:1%;
     table-layout: fixed;
+    body.home & {
+      display: block;
+      height: auto;
+      overflow: initial;
+      box-shadow: 0px 500px 0px 500px #000;
+      -moz-box-shadow: 0px 500px 0px 500px #000;
+      -webkit-box-shadow: 0px 500px 0px 500px #000;
+    }
 }
 
 .footer-section {
@@ -1200,6 +1249,7 @@ h1 {
   font-size: 12px;
   color: $white;
   line-height: 1.35;
+  p a { color: inherit; }
   @media only screen and ( max-width: $screen-sm - 1){
     float: none;
     width: 100%;

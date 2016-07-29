@@ -22,7 +22,7 @@
       <script src="/js/modernizr.js"></script>
       <![endif]-->
   </head>
-  <body class="home">
+  <body class="home {% block body_class %}{% endblock %}">
     <div id="wrapper">
       {% block header %}
         <header id="header" class="header">
@@ -59,9 +59,14 @@
         </header>
       {% endblock %}
 
+      {% block subnav %}{% endblock subnav %}
+
       <main role="main" id="main">
       {% block content %}{% endblock %}
       </main>
+
+      {% block footer_banner %}{% endblock footer_banner %}
+
     </div>
 
 

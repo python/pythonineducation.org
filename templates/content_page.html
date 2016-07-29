@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block secret %}
+Congratulations! You have found "the source". :-)
+
+You're obviously inquisitive ~ and this is a good thing. If you want to know
+how this site really works you should visit:
+
+https://github.com/python/pythonineducation.org
+
+We welcome contributions from anyone, no matter who you are. If you're
+thinking, "but they don't mean me", WE ESPECIALLY MEAN YOU. For more
+information see:
+
+https://github.com/python/pythonineducation.org/blob/master/CONTRIBUTING.rst
+
+Best wishes!
+{% endblock %}
+
+{% block title %}Python in Education - {% endblock %}
+
+{% block body_class %}content-page{% endblock body_class %}
+
+{% block subnav %}
+  <div class="subnav">
+    <ul>
+      <li class="first"><a href="#">Editor</a></li>
+      <li><a href="#">Tutorials</a></li>
+      <li><a href="#">Cool stuff</a></li>
+      <li><a href="#">Docs</a></li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block content %}
+    {{ page.content }}
+{% endblock %}
+
+{% block footer_banner %}
+    <div class="footer-banner" style="vertical-align: bottom;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 class="text-uppercase"><strong>Sample footer banner content</strong></h4>
+                    <img class="push-down" src="/images/hand.png">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
