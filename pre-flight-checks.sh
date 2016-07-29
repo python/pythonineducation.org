@@ -48,13 +48,13 @@ fi
 # Check that common names are spelt correctly.
 ###
 
-echo " *** Checking that common names are spelt correctly"
+#echo " *** Checking that common names are spelt correctly"
 
-grep -e "MicroBit" -e "Microbit" -e "microbit" -e "microBit" --line-number --recursive --include "*.html" output | grep -v https://microbit.co.uk
+#grep -e "MicroBit" -e "Microbit" -e "microbit" -e "microBit" --line-number --recursive --include "*.html" output | grep -v https://microbit.co.uk
 
-if [[ $? -eq 0 ]]; then
-	ERRORS+=("Spelling mistaik detected. :-)")
-fi
+#if [[ $? -eq 0 ]]; then
+#	ERRORS+=("Spelling mistaik detected. :-)")
+#fi
 
 kill $WOK_PID
 
