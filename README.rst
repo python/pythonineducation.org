@@ -15,27 +15,22 @@ more details).
 Development
 ~~~~~~~~~~~
 
-This site uses wok_. To install wok and other dependencies, run
-``pip install -r requirements.txt``. wok currently only works with Python 2.7.
+This site uses django-amber_. To install django-amber and other dependencies,
+run ``pip install -r requirements.txt``. django-amber is only known to work
+with Python 3.5.
 
-wok builds the site by assembling several components:
+django-amber builds the site by assembling several components:
 
-* Pages are found in ``content/``. Pages may be HTML, Markdown_ or reStrcturedText_, and contain some YAML metadata.
-* Statuc files are found in ``media/``.
-* The various jinja2_ templates for pages can be found in ``templates/``.
+* Pages are found in ``content/``. Pages may be HTML or Markdown_, and contain
+  some YAML metadata.
+* Static files are found in ``media/``.
+* The various Django templates for pages can be found in ``templates/``.
 
-To build the site, run ``make build``. This pulls together all the components
-into a set of HTML files in ``output/``.
+To build the site, run ``python manage.py buildsite``. This pulls together all
+the components into a set of HTML files in ``output/``.
 
-Windows users: you need to run the (extensionless) ``wok`` script in
-``c:\pythonxx\scripts``. e.g. ``py -2 c:\python27\scripts\wok``.
-
-Alternatively, if you run ``make serve``, wok will build the site, serve the
-built site on port 8000, and watch for changes.
-
-Windows users: you ned to run the (extensionless) ``work`` script with the
-``--serve`` parameter in ``c:\pythonxx\scripts``. e.g.
-``py -2 c:\python27\scripts\wok --serve``.
+Alternatively, if you run ``python manage.py serve``, django-amber will build
+the site, serve the built site on port 8000, and watch for changes.
 
 You can test that the site contains no broken links and that various common
 mis-spellings are caught correctly (hint, it's a "BBC micro:bit" for example)
@@ -71,9 +66,7 @@ works:
   the ISO 639-1 language code. They contain the content for this website in
   the langauge referenced by the language code in the name of the directory.
   For example, the English content is found in the ``content/en/`` directory
-  whereas the German content is in ``content/de/``. You must make sure that
-  the ``type`` field in the YAML header for the content is set to the correct
-  page template for the language.
+  whereas the German content is in ``content/de/``.
 * If in doubt, just look at what happens in the English version of the site and
   adapt to the desired language.
 
@@ -81,9 +74,10 @@ Deployment
 ~~~~~~~~~~
 
 The site is hosted as a Project Page on GitHub Pages, and so it is the
-``gh-pages`` branch of the repository that gets served. wok generates the site
-in the ``output/`` directory, and Travis is configured to push any changes to
-the ``output/`` directory to this branch. See ``deploy.sh`` for details.
+``gh-pages`` branch of the repository that gets served. django-amber generates
+the site in the ``output/`` directory, and Travis is configured to push any
+changes to the ``output/`` directory to this branch. See ``deploy.sh`` for
+details.
 
 This should be done automatically by Travis after it has built the ``master``
 branch, but in case this does not happen, somebody with commit access to the
@@ -99,9 +93,8 @@ for the project.
 Note: this is tied to a single user on GitHub, however any other GitHub user
 with valid permissions can replace the key on Travis.
 
-.. _wok: http://wok.mythmon.com/
+.. _django-amber: https://github.com/inglesp/django-amber
 .. _Markdown: https://pythonhosted.org/Markdown/
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
-.. _jinja2: http://jinja.pocoo.org/
 .. _issue: https://github.com/python/pythonineducation.org/issues
 .. _CONTRIBUTING.rst: ./CONTRIBUTING.rst
