@@ -14,4 +14,5 @@ pytest==2.5.2             # via wok
 PyYAML==3.10              # via wok
 regex==2016.3.2           # via awesome-slugify
 Unidecode==0.4.19         # via awesome-slugify
+libsass==0.11.1           # to make the css
 wok==1.1.1
