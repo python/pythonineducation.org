@@ -11,6 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="/css/bootstrap-extended.css">
       <link rel="stylesheet" href="/css/main.css">
+      {% block css %}{% endblock %}
       <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
@@ -18,6 +19,7 @@
       window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
       </script>
       <script src="/js/bootstrap.min.js"></script>
+      {% block javascript %}{% endblock %}
       <!--[if lt IE 9]>
       <script src="/js/modernizr.js"></script>
       <![endif]-->
@@ -45,7 +47,7 @@
                     <li><a href="/en/#learn">learn</a></li>
                     <li><a href="/en/#teach">teach</a></li>
                     <li><a href="/en/#build">build</a></li>
-                    <li><a href="#">micro:bit</a></li>
+                    <li><a href="/en/microbit">micro:bit</a></li>
                     <li><a href="#">raspberry_pi</a></li>
                   </ul>
                   <!-- switch language link -->

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+{% block secret %}{% endblock %}
+-->
+<html>
+  <head>
+      <title>{{ page.title }}</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="X-Clacks-Overhead" content="GNU John Pinner">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/bootstrap-extended.css">
+      <link rel="stylesheet" href="/css/main.css">
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+      <script type="text/javascript">
+      window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
+      </script>
+  </head>
+  <body class="editor">
+    {% block content %}
+    {{ page.content }}
+    {% endblock %}
+    <iframe sandbox="allow-modals allow-scripts allow-popups"
+            frameBorder="0"
+            src="/static/editor/editor.html"
+            class="embedded-editor" id="embedded-editor"></iframe>
+    <script>
+    $('#embedded-editor').load(function() {
+        var msg = {
+            'type': 0,
+            'script': {
+                'basesnapshot': '',
+                'editorState': {
+                    'lastSave': Date(),
+                },
+                'metadata': {
+                    'comment': 'A MicroPython script',
+                    'name': 'main.py',
+                },
+                'scriptText': '',
+            },
+        };
+        if(translate) {
+            msg.translate = translate;
+        }
+        if(default_name) {
+            msg.script.metadata.name = default_name;
+        }
+        if(default_description) {
+            msg.script.metadata.comment = default_description;
+        }
+        var iframe = document.getElementById('embedded-editor').contentWindow;
+        iframe.postMessage(msg, '*');
+    });
+    </script>
+  </body>
+  <!-- Python Powered! -->
+</html>

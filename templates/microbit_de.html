@@ -1,33 +1,33 @@
-{% extends "base.html" %}
+{% extends "page_de.html" %}
 
 {% block secret %}
-Congratulations! You have found "the source". :-)
+Herzliche Glückwünsche! Sie haben "the source" gefunden. :-)
 
-You're obviously inquisitive ~ and this is a good thing. If you want to know
-how this site really works you should visit:
+Sie sind offensichtlich neugierig ~ und das ist eine gute Sache. Wenn du wissen
+willst wie wirklich diese Seite funktioniert, sollten Sie besuchen:
 
 https://github.com/python/pythonineducation.org
 
-We welcome contributions from anyone, no matter who you are. If you're
-thinking, "but they don't mean me", WE ESPECIALLY MEAN YOU. For more
-information see:
+Wir freuen uns über Beiträge von jedem, egal, wer Sie sind. Wenn du bist
+denken, "aber sie bedeuten mir nicht", MEINEN WIR iHNEN BESONDERS. Für mehr
+Informationen finden Sie unter:
 
 https://github.com/python/pythonineducation.org/blob/master/CONTRIBUTING.rst
 
-Best wishes!
+Die besten Wünsche!
 {% endblock %}
 
-{% block title %}Python in Education - {% endblock %}
+{% block title %}MicroPython auf micro:bit - {% endblock %}
 
 {% block body_class %}content-page{% endblock body_class %}
 
 {% block subnav %}
   <div class="subnav">
     <ul>
-      <li class="first"><a href="#">Editor</a></li>
-      <li><a href="#">Tutorials</a></li>
-      <li><a href="#">Cool stuff</a></li>
-      <li><a href="#">Docs</a></li>
+      <li class="first"><a href="editor">Editor</a></li>
+      <li><a href="tutorials">Lernprogramm</a></li>
+      <li><a href="stuff">Cooles Zeug</a></li>
+      <li><a href="docs">Dokumentation</a></li>
     </ul>
   </div>
 {% endblock %}
@@ -41,7 +41,6 @@ Best wishes!
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
-                    <h4 class="text-uppercase"><strong>Sample footer banner content</strong></h4>
                     <img class="push-down" src="/images/hand.png">
                 </div>
             </div>

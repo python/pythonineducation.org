@@ -20,9 +20,38 @@ Die besten Wünsche!
 {% block title %}Python in der Bildung - {% endblock %}
 
 {% block header %}
-<header>
-    <!-- Ein Header auf Deutsch -->
-</header>
+        <header id="header" class="header">
+          <nav class="navbar navbar-default">
+            <div class="header-holder">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <!-- page logo -->
+                  <a class="navbar-brand" href="/de/"><img alt="Python In Education" src="/images/logo.png"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <!-- main navigation of the page -->
+                  <ul class="nav navbar-nav">
+                    <li><a href="/de/#learn">learnen</a></li>
+                    <li><a href="/de/#teach">lehren</a></li>
+                    <li><a href="/de/#build">bauen</a></li>
+                    <li><a href="/de/microbit">micro:bit</a></li>
+                    <li><a href="#">raspberry_pi</a></li>
+                  </ul>
+                  <!-- switch language link -->
+                  <div class="link-holder">
+                    <a class="language-link" href="#"><img alt="english" src="/images/bg-flag.png"><span>Change language</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
 {% endblock %}
 
 {% block content %}
@@ -30,7 +59,69 @@ Die besten Wünsche!
 {% endblock %}
 
 {% block footer %}
-<footer>
-    <!-- Eine Fußzeile auf Deutsch -->
-</footer>
+      <div id="footer">
+        <div class="footer-section">
+          <div class="footer-frame">
+            <div class="container-fluid">
+            <div class="col-copy">
+              <a href="/en/" class="logo-footer"><img alt="Python In Education" src="/images/logo.png"></a>
+              <div class="copy">
+                <p>&copy; 2016 The Python Software Foundation. <br>All rights reserved.</p>
+                <p>Design by <a href="https://www.blanc.ltd.uk/">Blanc</a></p>
+              </div>
+              <a href="https://www.python.org/psf-landing/" class="logo-partner"><img alt="Python Software Foundation" src="/images/psf_logo.jpg"></a>
+            </div>
+              <div class="footer-nav">
+                <ul>
+                  <li>
+                    <a href="/en/#learn">learn</a>
+                    <ul>
+                      <li><a href="#"><span>editor</span></a></li>
+                      <li><a href="#"><span>tutorials</span></a></li>
+                      <li><a href="#"><span>cool stuff</span></a></li>
+                      <li><a href="#"><span>docs</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/en/#teach">teach</a>
+                    <ul>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/en/#build">build</a>
+                    <ul>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">micro:bit</a>
+                    <ul>
+                      <li><a href="#"><span>editor</span></a></li>
+                      <li><a href="#"><span>tutorials</span></a></li>
+                      <li><a href="#"><span>cool stuff</span></a></li>
+                      <li><a href="#"><span>docs</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">raspberry pi</a>
+                    <ul>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                      <li><a href="#"><span>this is a link</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 {% endblock %}

@@ -17,9 +17,33 @@ https://github.com/python/pythonineducation.org/blob/master/CONTRIBUTING.rst
 Best wishes!
 {% endblock %}
 
-{% block title %}Python on the BBC micro:bit- {% endblock %}
+{% block title %}MicroPython on micro:bit - {% endblock %}
+
+{% block body_class %}content-page{% endblock body_class %}
+
+{% block subnav %}
+  <div class="subnav">
+    <ul>
+      <li class="first"><a href="editor">Editor</a></li>
+      <li><a href="tutorials">Tutorials</a></li>
+      <li><a href="stuff">Cool stuff</a></li>
+      <li><a href="docs">Docs</a></li>
+    </ul>
+  </div>
+{% endblock %}
 
 {% block content %}
     {{ page.content }}
 {% endblock %}
 
+{% block footer_banner %}
+    <div class="footer-banner" style="vertical-align: bottom;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img class="push-down" src="/images/hand.png">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

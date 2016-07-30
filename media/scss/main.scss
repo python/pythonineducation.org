@@ -60,7 +60,7 @@ body {
   display: table;
   table-layout: fixed;
   width: 100%;
-  &.content-page { display: block; }
+  &.content-page, &.editor { display: block; }
   @media only screen and ( max-width: $screen-sm - 1){
     font-size: 13px;
   }
@@ -1136,16 +1136,16 @@ h1 {
 }
 
 .footer-banner {
+    text-transform: uppercase;
     padding: 40px 0 60px 0;
     margin-top: 20px;
-    background: url(../images/stars.png) center center, #e17e79;
-    background: url(../images/stars.png) center center, -moz-linear-gradient(top,  #e17e79 7%, #e2827d 70%, #f0bdbb 100%);
-    background: url(../images/stars.png) center center, -webkit-linear-gradient(top,  #e17e79 7%,#e2827d 70%,#f0bdbb 100%);
-    background: url(../images/stars.png) center center, linear-gradient(to bottom,  #e17e79 7%,#e2827d 70%,#f0bdbb 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e17e79', endColorstr='#f0bdbb',GradientType=0 );
+    background: url(../images/stars.png) center center, #ff6e74;
+    background: url(../images/stars.png) center center, -moz-linear-gradient(top,  #ff6e74 7%, #e2827d 70%, #f0bdbb 100%);
+    background: url(../images/stars.png) center center, -webkit-linear-gradient(top,  #ff6e74 7%,#e2827d 70%,#f0bdbb 100%);
+    background: url(../images/stars.png) center center, linear-gradient(to bottom,  #ff6e74 7%,#e2827d 70%,#f0bdbb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6e74', endColorstr='#f0bdbb',GradientType=0 );
     .push-down { margin-bottom: -250px; }
 }
-
 
 /* footer styles */
 #footer {
@@ -1153,7 +1153,7 @@ h1 {
     display:table-footer-group;
     height:1%;
     table-layout: fixed;
-    body.home & {
+    body.content-page & {
       display: block;
       height: auto;
       overflow: initial;
@@ -1331,6 +1331,13 @@ h1 {
     width: 100%;
     float: none;
   }
+}
+
+.embedded-editor {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* ---------------------------------------------------------
