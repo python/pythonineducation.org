@@ -1,0 +1,379 @@
+#editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000000;
+    font-size: 22px;
+}
+
+/* Re-usable, generic rules */
+.hidden {
+  display: none !important;
+}
+
+.vbox {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+.hbox {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+}
+
+.flex1 {
+  flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+}
+
+.flex3 {
+  flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+}
+
+/* Whole page layout */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body, input {
+  font-family: "Segoe UI Light", "Segoe UI", "Segoe WP Light", "Segoe WP",
+    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+}
+
+#main {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background: #F2F2F2;
+}
+
+#editor {
+  position: relative;
+  margin: 0;
+}
+
+/* Script info box */
+#script-box {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  text-align: right;
+  width: 100%;
+}
+
+#script-name {
+  font-size: 2rem;
+  color: #1a354c;
+  overflow: hidden;
+  max-height: 90px;
+}
+
+#script-description {
+  color: #336699;
+  padding-bottom: 0.2rem;
+  overflow: hidden;
+  max-height: 22px;
+}
+
+#script-icons > *:not(:first-child) {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.zoomer, 
+.saved-state {
+  cursor: pointer !important;
+}
+
+#script-icons {
+    width: 54px;
+    min-width: 54px;
+}
+
+#script-icons .status-icon {
+  width: 2rem;
+  height: 2rem;
+  border: 6px solid #FFCC33;
+  border-radius: 50%;
+  margin: .2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 2.1rem;
+  padding: .1em;
+  font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Symbola", sans-serif;
+  color: #336699;
+  background: #FFFFFF;
+}
+
+#script-icons .holder {
+  width: 54px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #336699;
+  text-decoration: none;
+  background-image: url("/static/img/triangle.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 0px;
+}
+
+#script-icons .holder:focus, #script-icons #holder:active {
+  background-image: url("/static/img/triangle2.svg");
+}
+
+/* Popups */
+.popup {
+  width: 500px;
+  border: 5px solid #666;
+  position: relative;
+  background-color: white;
+  z-index: 999;
+}
+
+.popup::after {
+  content: "";
+  display: block;
+  width: 0;
+
+  position: absolute;
+  top: -20px;
+  right: 10px;
+
+  border-style: solid;
+  border-width: 0 20px 20px;
+  border-color: #666 transparent;
+}
+
+.popup-inner {
+  padding: 1rem;
+}
+
+#popup-edit input {
+  border: 0;
+}
+
+/* Toolbox and commands */
+#merge-commands {
+  margin-left: 3em;
+}
+
+#merge-commands > * {
+  cursor: pointer;
+}
+
+#merge-commands > .label {
+  color: #a40000;
+  font-weight: bold;
+}
+
+#commands {
+  min-width: 567px;
+}
+
+#commands a {
+  text-align: center;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+
+#toolbox {
+}
+
+#log {
+  overflow: auto;
+  width: 500px;
+  max-height: 500px;
+}
+
+.status {
+  white-space: pre-wrap;
+}
+
+.status:first-letter {
+  font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Symbola", sans-serif;
+}
+
+.status:not(:first-letter) {
+  font-weight: bold;
+}
+
+.status.error {
+  color: #a40000;
+}
+
+.status:not(.error) {
+  color: #4e9a06;
+}
+
+/* Buttons */
+.roundbutton {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #336699;
+  text-decoration: none;
+  background-image: url("/static/img/triangle.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  min-width: 90px;
+}
+
+.roundsymbol {
+  width: 4rem;
+  height: 4rem;
+  border: 6px solid #FFCC33;
+  border-radius: 50%;
+  margin: .2rem;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 2.6rem;
+  line-height: 3.8rem;
+  padding: .1em;
+  font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Symbola", sans-serif;
+  color: #336699;
+  background: #FFFFFF;
+}
+
+.roundbutton:focus, .roundbutton:active {
+  background-image: url("/static/img/triangle2.svg");
+}
+
+.roundlabel {
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  font-size: 80%;
+  text-align: center;
+  color: #336699;
+}
+
+body:not(.hasFota) .fota {
+  display: none;
+}
+
+body.hasFota .notfota {
+  display: none;
+}
+
+/* Misc */
+a.command, a.command:visited {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a.command:hover {
+  text-decoration: underline;
+}
+
+/* Some overrides for narrow displays */
+@media (max-width: 890px) {
+  .roundbutton {
+    display: inline;
+    padding: 0.75em;
+    min-width: 48px;
+  }
+
+  #script-icons {
+    display: none;
+  }
+
+  .roundsymbol {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2.05rem;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .roundlabel {
+    padding-top: 0;
+    display: none;
+  }
+
+  .roundbutton > * {
+    /*display: inline-block;*/
+  }
+
+  #script-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    max-height: 50px;
+  }
+
+  .blocklyTreeRow {
+    padding-right: .3em !important;
+  }
+
+  .blocklyTreeIcon {
+    width: 6px !important;
+  }
+
+  .blocklyTreeLabel {
+    font-size: 12px !important;
+  }
+
+  #commands {
+    min-width: 289px;
+  }
+}
+
+@media (max-width: 480px) {
+  #toolbox {
+    flex-direction: column;
+    -ms-flex-direction: column;
+  }
+
+  #script-box {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    text-align: left;
+    width: 100%;
+  }
+}
+
+.snippet-selection:hover {
+    background: #FFCC33;
+    cursor: pointer;
+}
+
+.snippet-table {
+    width: 100%;
+}
+
+.snippet-table th {
+    text-align: left;
+    padding-right: 48px;
+}
+
+.snippet-table td {
+    border-bottom: 1px dotted #CCC;
+}
+
+.snippet-name {
+    display: none;
+}
