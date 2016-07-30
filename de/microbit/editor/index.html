@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+  <head>
+      <title>Code Editor</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="X-Clacks-Overhead" content="GNU John Pinner">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/bootstrap-extended.css">
+      <link rel="stylesheet" href="/css/main.css">
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+      <script type="text/javascript">
+      window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
+      </script>
+  </head>
+  <body class="editor">
+    
+    <script>
+    var translate = {
+        'my_scripts-label': 'Meine Scripts',
+        'my_scripts-title': 'Speichern und kehren Sie zu Ihrer Skripte',
+        'download-label': 'Herunterladen',
+        'download-title': 'Laden Sie eine Hex-Datei zu blinken auf Ihre micro:bit',
+        'snippets-label': 'Snippets',
+        'snippets-title': 'Klicken Sie auf ein Snippet (Code Abkürzung) zu wählen',
+        'help-label': 'Hilfe',
+        'help-title': 'Hilfe für diesen Editor in einem neuen Tab',
+        'zoom_in-title': 'Hineinzoomen',
+        'zoom_out-title': 'Rauszoomen',
+        'log-title': "Lesen Sie ein Protokoll (in englischer Sprache) aller Dinge, die Sie waren bis zu",
+        'code_snippets': {
+            'title': 'Code Snippets',
+            'description': "Code snippets sind kurze Codeblöcke in Ihre eigenen Programme wieder zu verwenden. Es gibt Schnipsel für die häufigsten Dinge, die Sie wollen, werden mit MicroPython zu tun.",
+            'instructions': "Wählen Sie eine der Snippets unten, oder geben Sie sie Snippets auslösen und tippen Sie auf die TAB-Taste.",
+            'trigger_heading': 'Auslöser',
+            'description_heading': 'Beschreibung',
+            'docs': 'ein Kommentar schreiben Ihren Code zu beschreiben',
+            'wh': 'während einige Bedingung True ist, halten einige Code Schleifen über',
+            'with': 'tun ein paar Sachen mit etwas einem Namen zugeordnet',
+            'cl': 'eine neue Klasse zu erstellen, die das Verhalten einer neuen Art von Objekt definiert',
+            'def': 'definieren eine benannte Funktion, die einige Argumente und optional eine Beschreibung hinzufügen nimmt',
+            'if': 'wenn eine bestimmte Bedingung True ist, etwas zu tun',
+            'ei': 'enn sonst eine andere Bedingung True ist, etwas zu tun',
+            'el': 'anderes tun, eine andere Sache,',
+            'for': 'für jedes Element in einer Sammlung von Gegenständen etwas tun, mit jedem Element',
+            'try': 'versuchen, etwas zu tun, und behandeln Exception (Fehler)',
+        }
+    };
+    var default_name = "Ein kleines Python-Skript";
+    var default_description = 'Ein MicroPython Skript';
+</script>
+
+    
+    <iframe sandbox="allow-modals allow-scripts allow-popups"
+            frameBorder="0"
+            src="/static/editor/editor.html"
+            class="embedded-editor" id="embedded-editor"></iframe>
+    <script>
+    $('#embedded-editor').load(function() {
+        var msg = {
+            'type': 0,
+            'script': {
+                'basesnapshot': '',
+                'editorState': {
+                    'lastSave': Date(),
+                },
+                'metadata': {
+                    'comment': 'A MicroPython script',
+                    'name': 'main.py',
+                },
+                'scriptText': '',
+            },
+        };
+        if(translate) {
+            msg.translate = translate;
+        }
+        if(default_name) {
+            msg.script.metadata.name = default_name;
+        }
+        if(default_description) {
+            msg.script.metadata.comment = default_description;
+        }
+        var iframe = document.getElementById('embedded-editor').contentWindow;
+        iframe.postMessage(msg, '*');
+    });
+    </script>
+  </body>
+  <!-- Python Powered! -->
+</html>

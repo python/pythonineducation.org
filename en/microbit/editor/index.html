@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+  <head>
+      <title>Code Editor</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="X-Clacks-Overhead" content="GNU John Pinner">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/bootstrap-extended.css">
+      <link rel="stylesheet" href="/css/main.css">
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+      <script type="text/javascript">
+      window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
+      </script>
+  </head>
+  <body class="editor">
+    
+    <script>
+    var translate = {
+        'my_scripts-label': 'My Scripts',
+        'my_scripts-title': 'Save and return to your scripts',
+        'download-label': 'Download',
+        'download-title': 'Download a hex file to flash onto your micro:bit',
+        'snippets-label': 'Snippets',
+        'snippets-title': 'Click to select a snippet (code shortcut)',
+        'help-label': 'Help',
+        'help-title': 'Open help for this editor in a new tab',
+        'zoom_in-title': 'Zoom in',
+        'zoom_out-title': 'Zoom out',
+        'log-title': "Read a log (in English) of all the things you've been up to",
+        'code_snippets': {
+            'title': 'Code Snippets',
+            'description': "Code snippets are short blocks of code to re-use in your own programs. There are snippets for most common things you'll want to do using MicroPython.",
+            'instructions': "Select one of the snippets below, or type the snippet's trigger then tap the TAB key.",
+            'trigger_heading': 'trigger',
+            'description_heading': 'description',
+            'docs': 'create a comment to describe your code',
+            'wh': 'while some condition is True, keep looping over some code',
+            'with': 'do some stuff with something assigned to a name',
+            'cl': 'create a new class that defines the behaviour of a new type of object',
+            'def': 'define a named function that takes some arguments and optionally add a description',
+            'if': 'if some condition is True, do something',
+            'ei': 'else if some other condition is True, do something',
+            'el': 'else do some other thing',
+            'for': 'for each item in a collection of items do something with each item',
+            'try': 'try doing something and handle exceptions (errors)'
+        }
+    };
+    var default_name = 'main';
+    var default_description = 'A MicroPython script';
+</script>
+
+    
+    <iframe sandbox="allow-modals allow-scripts allow-popups"
+            frameBorder="0"
+            src="/static/editor/editor.html"
+            class="embedded-editor" id="embedded-editor"></iframe>
+    <script>
+    $('#embedded-editor').load(function() {
+        var msg = {
+            'type': 0,
+            'script': {
+                'basesnapshot': '',
+                'editorState': {
+                    'lastSave': Date(),
+                },
+                'metadata': {
+                    'comment': 'A MicroPython script',
+                    'name': 'main.py',
+                },
+                'scriptText': '',
+            },
+        };
+        if(translate) {
+            msg.translate = translate;
+        }
+        if(default_name) {
+            msg.script.metadata.name = default_name;
+        }
+        if(default_description) {
+            msg.script.metadata.comment = default_description;
+        }
+        var iframe = document.getElementById('embedded-editor').contentWindow;
+        iframe.postMessage(msg, '*');
+    });
+    </script>
+  </body>
+  <!-- Python Powered! -->
+</html>
