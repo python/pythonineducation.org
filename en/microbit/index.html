@@ -29,6 +29,7 @@ Best wishes!
       
       <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Poppins:400,600,700' rel='stylesheet' type='text/css'>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
       <script type="text/javascript">
       window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
@@ -39,15 +40,18 @@ Best wishes!
       <script src="/js/modernizr.js"></script>
       <![endif]-->
   </head>
-  <body class="home content-page">
+  <body class="inner-page purple-blue">
+    <!-- main container of all the page elements -->
     <div id="wrapper">
+      <div class="wrapper-holder">
       
+        <!-- header of the page -->
         <header id="header" class="header">
           <nav class="navbar navbar-default">
             <div class="header-holder">
               <div class="container-fluid">
                 <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -56,18 +60,27 @@ Best wishes!
                   <!-- page logo -->
                   <a class="navbar-brand" href="/en/"><img alt="Python In Education" src="/images/logo.png"></a>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="main-menu">
                   <!-- main navigation of the page -->
                   <ul class="nav navbar-nav">
                     <li><a href="/en/#learn">learn</a></li>
                     <li><a href="/en/#teach">teach</a></li>
                     <li><a href="/en/#build">build</a></li>
-                    <li><a href="/en/microbit">micro:bit</a></li>
-                    <li><a href="#">raspberry_pi</a></li>
+                    <li class="active"><a href="#">micro:bit</a>
+                    <div class="drop">
+                      <ul>
+                        <li><a href="editor">Editor</a></li>
+                        <li><a href="tutorials">Tutorials</a></li>
+                        <li><a href="stuff">Cool stuff</a></li>
+                        <li><a href="docs">Docs</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                    <li><a href="/en/raspberrypi">raspberry pi</a></li>
                   </ul>
                   <!-- switch language link -->
                   <div class="link-holder">
-                    <a class="language-link" href="#"><img alt="english" src="/images/bg-flag.png"><span>Change language</span></a>
+                    <a class="language-link" href="/"><img alt="english" src="/images/language.png" title="Change language"><span>Change language</span></a>
                   </div>
                 </div>
               </div>
@@ -75,51 +88,274 @@ Best wishes!
           </nav>
         </header>
       
-
-      
-  <div class="subnav">
-    <ul>
-      <li class="first"><a href="editor">Editor</a></li>
-      <li><a href="tutorials">Tutorials</a></li>
-      <li><a href="stuff">Cool stuff</a></li>
-      <li><a href="docs">Docs</a></li>
-    </ul>
-  </div>
-
-
-      <main role="main" id="main">
-      
-    <section>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1>This is a demo content page</h1>
-                <p class="summary"></p>
-                <p></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-      </main>
-
-      
-    <div class="footer-banner" style="vertical-align: bottom;">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <img class="push-down" src="/images/hand.png">
+        <!-- contain main content of the page -->
+        <main role="main" id="main">
+          
+            <div class="main-holder">
+          <div class="intro-block">
+            <section class="feature-block">
+              <h1>CODE THE FUTURE</h1>
+              <div class="image-holder">
+                <div class="center1">
+                  <div class="center2">
+                    <img src="/images/microbit_space_hand.png" alt="image description" width="1312" height="711">
+                  </div>
                 </div>
+              </div>
+              <div class="btn-planet planet1"><a href="#"><span>WRITE CODE</span></a></div>
+              <div class="btn-planet planet2"><a href="#"><span>LEARN PYTHON</span></a></div>
+              <div class="btn-planet planet3"><a href="#"><span>INSPIRE ME</span></a></div>
+              <div class="btn-planet planet4"><a href="#"><span>READ THE DOCS</span></a></div>
+              <a class="btn-down" href="#text-block">
+                <span class="icon-arrow-down a1"></span>
+                <span class="icon-arrow-down a2"></span>
+              </a>
+            </section>
+            <!-- introductory content of the page -->
+            <section class="intro-text" id="text-block">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-12 col-md-8 col-md-offset-2 intro-text text-center">
+                    <div class="image-holder">
+                      <img src="/images/python_logo_light.png" alt="image description" width="535" height="335">
+                    </div>
+                    <div class="holder">
+                      <h1>PYTHON</h1>
+                      <h2>Python is a programming language. It's used all over the world by all sorts of people from professional coders to complete beginners. </h2>
+                      <p>It's very easy to learn. Use Python to code cool stuff with your BBC micro:bit. You can use your BBC micro:bit for all sorts of cool creations, from robots to musical instruments – the possibilities are endless. The micro:bit is a handheld, fully programmable computer being given free to every Year 7 or equivalent child across the UK. It’s 70 times smaller and 18 times faster than the original BBC Micro computers used in schools in the early 1980s.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <img class="planet planet1" src="/images/meteor.png" alt="image description" width="236" height="194">
+            <img class="planet planet2" src="/images/rocket.png" alt="image description" width="202" height="175">
+            <img class="planet planet3" src="/images/saturn.png" alt="image description" width="118" height="83">
+          </div>
+          <section class="editor-block">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <h1>GET STUCK IN!</h1>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-xs-12 col-sm-6 description">
+                    <strong class="title">Instructions:</strong>
+                    <ol>
+                      <li>Type in your Python program in the editor</li>
+                      <li>Click ‘Download’ and save the file</li>
+                      <li>Plug in your micro:bit, it’ll show up as a USB</li>
+                      <li>Drag the saved file onto your micro:bit</li>
+                      <li>That’s it!</li>
+                    </ol>
+                    <a class="btn-edit" href="#">Editor</a>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 video-block">
+                    <!-- video element -->
+                    <div class="video">
+                      <a href="#"><img src="/images/img19.jpg" alt="image description" width="501" height="282"><span class="btn-play">&nbsp;</span></a>
+                    </div>
+                    <a class="discover-link" href="#">Discover the Python Editor</a>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-xs-12">
+                    <h2>CODE EXAMPLE:</h2>
+                    <div class="code-block">
+                      <dl class="code-list">
+                        <dt><span>from microbit import *</span></dt>
+                        <dd>...tells MicroPython to get all the stuff it needs to work with the micro:bit. </dd>
+                        <dt><span>display.scroll("<mark>Hello, World!</mark>")</span></dt>
+                        <dd>...tells MicroPython to use the display to scroll the string of characters “Hello, World!”.</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </section>
+          <div class="cloud-section">
+            <section class="staff-block">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h1>COOL STUFF</h1>
+                    <!-- carousel -->
+                    <div class="carousel">
+                      <div class="mask-holder">
+                        <div class="mask">
+                          <div class="slideset">
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img20.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">The Main Course - What's Your Big Food Question?</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img21.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">The Big Food Survey - First Course Activities</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img22.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">Sink your teeth into the Big Food Survey!</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img22.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">Sink your teeth into the Big Food Survey!</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img20.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">The Main Course - What's Your Big Food Question?</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img21.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">The Big Food Survey - First Course Activities</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img21.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">The Big Food Survey - First Course Activities</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img22.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">Sink your teeth into the Big Food Survey!</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slide">
+                              <!-- single post -->
+                              <div class="staff-col">
+                                <div class="staff-content">
+                                  <div class="visual">
+                                    <a href="#"><img src="images/img20.jpg" alt="image description" width="319" height="300"></a>
+                                  </div>
+                                  <div class="description">
+                                    <h3><a href="#">The Main Course - What's Your Big Food Question?</a></h3>
+                                    <span class="author">By <a href="#">micro:bit</a></span>
+                                  </div>
+                                  <a class="more" href="#"><span>Read more</span></a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="btn-prev" href="#">Previous</a>
+                      <a class="btn-next" href="#">Next</a>
+                    </div>
+                    <div class="text-center">
+                      <a class="btn-edit" href="#">See more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div class="banner-info">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-12 banner-wrap">
+                      <div class="visual">
+                          <img src="/images/hand.png" alt="image description" width="338" height="394">
+                      </div>
+                      <div class="description text-center">
+                         <strong class="subtitle">BE BRAVE. BREAK THINGS. LEARN AND HAVE FUN.</strong>
+                         <h1>EXPRESS YOURSELF WITH MICROPYTHON</h1> 
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <img class="plane-image" src="/images/jet.png" alt="image description" width="204" height="90">
+          </div>
+          <span class="sticker sticker-bottom"></span>
         </div>
+
+        </main>
+      </div>
     </div>
-
-
-    </div>
-
-
     
+      <!-- footer of the page -->
       <div id="footer">
         <div class="footer-section">
           <div class="footer-frame">

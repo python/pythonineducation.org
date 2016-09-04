@@ -43,7 +43,7 @@ $media-expressions: (
 /* ---------------------------------------------------------
    1. General reset
    ---------------------------------------------------------*/
-
+    
 /*
  * set default text color
  * set default font size, line height and font family
@@ -60,9 +60,113 @@ body {
   display: table;
   table-layout: fixed;
   width: 100%;
-  &.content-page, &.editor { display: block; }
   @media only screen and ( max-width: $screen-sm - 1){
     font-size: 13px;
+  }
+  &.red {
+    #wrapper {
+      background: #e17e79 url(../images/bg-head1.jpg) no-repeat 50% 0;
+      background-size: 100% 166px;
+    }
+    .navbar-nav .drop {
+      @include gradient (rgba(49, 26, 38, 0.7), rgba(39, 18, 22, 0.7));
+      @media only screen and ( max-width: $screen-md - 1){
+        background: none;
+      }
+    }
+    .cloud-section {
+      background: none;
+      padding: 60px 0 0;
+      h4 {
+        margin: 0 0 32px;
+        color: #222221;
+        padding: 0 2px;
+        font: 600 26px/32px $title2-font-family;
+        @media only screen and ( max-width: $screen-sm - 1){
+          font-size: 38px;
+          line-height: 37px;
+          margin: 0 0 38px;
+          color: $black;
+          padding: 0 20px;
+          text-align: center;
+        }
+      }
+      @media only screen and ( max-width: $screen-sm - 1){
+        padding: 36px 0 0;
+        .carousel .mask-holder {
+          width: 232px;
+        }
+        .mask {
+          height: auto !important;
+          overflow: hidden !important;
+        }
+        .slideset {
+          width: 232px !important;
+          margin: 0 !important;
+        }
+        .carousel .mask .slide {
+            float: none;
+            width: 232px;
+            margin-bottom: 32px;
+        }
+        .staff-col {
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+  &.purple-blue {
+    #wrapper {
+      @include gradient ($dark-color, $light-color);
+    }
+    .editor-block {
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include gradient-diagonal ($blue-color, $green-color);
+        opacity: 0.4;
+        content:'';
+      }
+    }
+    .cloud-section {
+      background: url(../images/bg-clouds.png) no-repeat;
+      background-size: 100% auto;
+      .plane-image {
+        position: absolute;
+        bottom: 18.1%;
+        right: 62px;
+        @media only screen and ( max-width: $screen-sm - 1){
+          width: 129px;
+          height: 66px;
+          right: 0;
+          bottom: 41.3%;
+        }
+      }
+    }
+  }
+  &.inner-page {
+    .wrapper-holder {
+      height: 100%;
+      position: relative;
+      width: 100%;
+      background:url(../images/bg-glow.png) no-repeat 50% 100%;
+      background-size: 100% auto;
+    }
+    #wrapper {
+      &:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background:url(../images/bg-stars.png) no-repeat 50% 0;
+        content:'';
+      }
+    }
   }
 }
 
@@ -81,7 +185,6 @@ blockquote {
 /* set styles for default page links */
 a{
   outline: none !important;
-  transition:all 0.3s ease 0s;
   text-decoration: underline;
   &:focus {
     text-decoration: none;
@@ -193,11 +296,60 @@ ul {
   }
 }
 
-h1 {
-  @media only screen and ( max-width: $screen-lg - 1){
-    font-size: 70px;
-    line-height: 76px;
+ol {
+  @extend %listreset;
+  list-style-position: outside;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: bold;
+  counter-reset:item;
+  padding: 0 0 10px;
+  li {
+    list-style-position: outside;
+    list-style: none;
+    padding: 0 0 24px;
+    &:before {
+      float:left;
+      padding:0;
+      margin:0 17px 0 0;
+      font-weight: bold;
+      position:relative;
+      content:''counter(item)'.';
+      counter-increment:item;
+      @media only screen and ( max-width: $screen-sm - 1){
+        margin: 0 4px 0 0;
+      }
+    }
   }
+}
+
+h1 {
+  font:600 72px/74px $title2-font-family;
+  text-transform: uppercase;
+  color: $body-bg;
+  text-align: center;
+  margin: 0 0 20px;
+  text-shadow: 3px 3px 0 #000;
+  @media only screen and ( max-width: $screen-md - 1){
+    font-size: 60px;
+    line-height: 64px;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+h2 {
+  font:600 48px/50px $title2-font-family;
+  color: $color-text;
+  margin: 0 0 30px;
+}
+
+h3 {
+  font:600 25px/27px $title2-font-family;
+  color: $color-text;
+  margin: 0 0 25px;
 }
 
 .container-fluid {
@@ -213,19 +365,13 @@ h1 {
 
 /* main container styles */
 #wrapper {
-	width: 100%;
+  width: 100%;
   position: relative;
   display:table-cell;
   table-layout: fixed;
-  body.content-page & { display: block; }
   @media only screen and ( max-width: $screen-sm - 1){
     overflow: hidden;
   }
-}
-
-.column-wrap {
-  max-width: 1040px;
-  margin: auto;
 }
 
 /* header styles */
@@ -242,6 +388,7 @@ h1 {
     height: 26px;
     left: 0;
     right: 0;
+    z-index: 5;
     background:url(../images/mask-header.png) repeat-x 50% 100%;
     content:'';
     @media only screen and ( max-width: $screen-md - 1){
@@ -265,6 +412,7 @@ h1 {
   padding: 18px 3px 5px 6px;
   margin: 0 auto;
   @extend %clearfix;
+  position: relative;
   @media only screen and ( max-width: $screen-md - 1){
     padding: 18px 0 5px;
   }
@@ -295,6 +443,8 @@ h1 {
   }
   @media only screen and ( max-width: $screen-sm - 1){
     width: 92px;
+    position: relative;
+    z-index: 22;
     height: 29px;
     background:url(../images/logo-mobile.png) no-repeat;
     margin: 0 0 0 10px !important;
@@ -327,6 +477,7 @@ h1 {
   border: none;
   margin: 17px 10px 0 0;
   padding: 0;
+  z-index: 22;
 
   .icon-bar {
     border-radius: 0;
@@ -341,7 +492,7 @@ h1 {
     }
     & + .icon-bar + .icon-bar {
       display: none;
-    }
+    } 
   }
   &.collapsed {
     .icon-bar {
@@ -352,11 +503,11 @@ h1 {
         transform:none;
         margin-top:4px;
         transform:none;
-      }
+      } 
       & + .icon-bar + .icon-bar {
         display: block;
         transform:none;
-      }
+      } 
     }
   }
   &:hover {
@@ -378,8 +529,8 @@ h1 {
   li {
     float: left;
     margin: 0 0 0 7px;
-    position: relative;
     padding: 0 0 0 11px;
+    position: static;
     &:before {
       content:'/';
       clear:both;
@@ -390,21 +541,84 @@ h1 {
     }
     &.active {
       a {
-        text-decoration: none;
-        color: #ac244a !important;
+        color: $body-bg !important;
+        text-decoration: underline;
       }
     }
     @media only screen and ( max-width: $screen-md - 1){
       float: none;
       padding: 0;
       margin: 0 0 25px;
+      position: relative;
     }
   }
   a {
     display: inline-block !important;
     vertical-align: top;
+    transition:color 0.3s ease 0s, background 0.3s ease 0s;
     @media only screen and ( max-width: $screen-md - 1){
       padding: 0 !important;
+    }
+  }
+  .drop {
+    position: absolute;
+    top:100%;
+    left: 0;
+    padding: 48px 36px 27px;
+    right: 0;
+    z-index: 2;
+    background:rgba(0, 0, 0, 0.5);
+    ul {
+      float: right;
+      text-transform: uppercase;
+      font:16px/18px $title2-font-family;
+      li {
+        padding: 0;
+        margin: 0 0 0 33px;
+        &:before {
+          content:'';
+          @media only screen and ( max-width: $screen-md - 1){
+            content:'>';
+            line-height: 20px;
+            margin: 0 2px 0 0;
+          }
+        }
+        &.active {
+          a {
+            color: $nav-color !important;
+          }
+        }
+        @media only screen and ( max-width: $screen-md - 1){
+          margin: 0 0 10px;
+        }
+      }
+      a {
+        color: $body-bg !important;
+        text-decoration: none;
+        &:hover {
+          color: $nav-color !important;
+          @media only screen and ( max-width: $screen-md - 1){
+            text-decoration: none !important;
+          }
+        }
+        @media only screen and ( max-width: $screen-md - 1){
+          color: $nav-color !important;
+          text-decoration: underline !important;
+        }
+      }
+      @media only screen and ( max-width: $screen-md - 1){
+        float: none;
+        text-transform: none;
+        font-size: 13px;
+        line-height: 15px;
+      }
+    }
+    @media only screen and ( max-width: $screen-md - 1){
+      position: static;
+      padding: 15px 0 0 10px;
+      background: none;
+      overflow: hidden;
+      margin: 0 0 -14px;
     }
   }
   @media only screen and ( max-width: $screen-md - 1){
@@ -412,26 +626,6 @@ h1 {
     padding:25px 13px 2px;
     background:url(../images/top-menu.png) repeat-x;
     margin: 0;
-  }
-}
-
-.subnav {
-  background: url(../images/subnav_bg.jpg) center center repeat-x;
-  text-align: right;
-  padding: 40px 20px 20px 20px;
-  margin-bottom: 20px;
-  li {
-    display: inline-block;
-    margin-left: 20px;
-    a {
-      color: #fff;
-      text-transform: uppercase;
-      text-decoration: none;
-      &:hover { text-decoration: underline; }
-    }
-  }
-  @media only screen and ( min-width: $screen-md ){
-    padding: 120px 20px 20px 20px;
   }
 }
 
@@ -459,6 +653,7 @@ h1 {
     transition:all 0.3s ease 0s;
     display: none;
     margin: 0 0 0 14px;
+    transition:color 0.3s ease 0s;
     @media only screen and ( max-width: $screen-md - 1){
       display: block;
       display: inline-block;
@@ -637,23 +832,6 @@ h1 {
 }
 
 .title-section {
-  .sticker-bottom {
-    left: auto;
-    right: 30px;
-    z-index: 999;
-    bottom: -20px;
-    width: 131px;
-    height: 71px;
-    background: url(../images/label8.png) no-repeat;
-    @media only screen and ( max-width: $screen-sm - 1){
-      background: url(../images/label-mobile.png) no-repeat;
-      background-size: 33px 28px;
-      width: 33px;
-      height: 28px;
-      right:0;
-      bottom: 0;
-    }
-  }
   .heading-col {
     padding-top: 147px;
     padding-bottom: 190px;
@@ -738,6 +916,9 @@ h1 {
     display: inline-block;
     vertical-align: top;
     color: $dark;
+    text-shadow: none;
+    text-align: left;
+    text-transform: none;
     span {
       display: block;
       font-family: $title-font-family;
@@ -798,11 +979,9 @@ h1 {
 /* main informative part styles */
 #main {
   margin: 0 0 -9px;
-  body.content-page & { margin-bottom: 0; }
   overflow: hidden;
   @media only screen and ( max-width: $screen-sm - 1){
     margin: 0 0 -41px;
-    body.content-page & { margin-bottom: 0; }
   }
 }
 
@@ -872,6 +1051,7 @@ h1 {
     font-size: 18px;
     font-weight: normal;
     text-decoration: none;
+    transition:color 0.3s ease 0s;
     &:before {
       content:'>';
       clear:both;
@@ -980,6 +1160,9 @@ h1 {
     margin: 0 0 60px;
     color: $dark;
     letter-spacing: -3px;
+    text-shadow: none;
+    text-transform: none;
+    text-align: left;
     &:before {
       content:'>';
       clear:both;
@@ -1045,8 +1228,9 @@ h1 {
     font-size: 18px;
     font-weight: normal;
     text-decoration: none;
+    transition:color 0.3s ease 0s;
     span {
-      text-decoration: underline;
+      text-decoration: underline; 
     }
     &:before {
       content:'>';
@@ -1059,7 +1243,7 @@ h1 {
     }
     &:hover {
       span {
-        text-decoration: none;
+        text-decoration: none;  
       }
     }
     @media only screen and ( max-width: $screen-sm - 1){
@@ -1135,16 +1319,1246 @@ h1 {
   }
 }
 
-.footer-banner {
+.main-container {
+  @media only screen and ( max-width: $screen-sm - 1){
+    position: relative;
+  }
+}
+
+.main-holder {
+  padding: 167px 0 30px;
+  .sticker-bottom {
+    @media only screen and ( max-width: $screen-sm - 1){
+      bottom: 41px;
+      left: auto;
+    }
+  }
+  @media only screen and ( max-width: $screen-md - 1){
+    padding: 80px 0 30px;
+    .inner-page.red & {
+      padding-top: 0;
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    position: relative;
+    padding: 30px 0 0;
+    .inner-page.red & {
+      padding: 0;
+    }
+  }
+}
+
+.intro-block {
+  overflow: hidden;
+  position: relative;
+  padding: 86px 0 63px;
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 14px 0;
+  }
+}
+
+.feature-block {
+  position: relative;
+  padding: 0 0 331px;
+  @extend %clearfix;
+  h1 {
+    margin: 0 0 -27px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 0 -32px;
+    }
+  }
+  .center1 {
+    @media only screen and ( max-width: 480px) {
+      left: -124px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      float: left;
+      position: relative;
+      right: 0;
+      min-width: 582px;
+    }
+  }
+  .image-holder {
+    float: right;
+    width: 91%;
+    img {
+      display: block;
+      width: 100%;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      width: auto;
+      margin: 0 -11px -60px;
+      max-width: 100%;
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 0 11px;
+    margin: 0 0 -19px;
+  }
+}
+
+.btn-planet {
+  position: absolute;
+  font:600 56px/55px $title2-font-family;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000;
+  z-index: 20;
+  a {
+    display: block;
+    color: $body-bg;
+    height: 100%;
+    @include v-align;
+    text-decoration: none;
+    transition:color 0.3s ease 0s;
+    &:hover {
+      color:$nav-color;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      padding: 18px 20px 17px;
+    }
+  }
+  &.planet1 {
+    width: 244px;
+    height: 243px;
+    bottom: 35.6%;
+    left: 4%;
+    z-index: 21;
+    background: url(../images/bg-planet1.png) no-repeat;
+    @media only screen and ( max-width: $screen-lg - 1){
+      width: 150px;
+      height: 150px;
+      background: url(../images/bg-planet1.png) no-repeat;
+      background-size: 150px 150px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      background: url(../images/bg-planet1-small.png) no-repeat;
+      background-size: cover;
+    }
+  }
+  &.planet2 {
+    width: 694px;
+    height: 513px;
+    bottom: -0.3%;
+    left: 11.3%;
+    background: url(../images/bg-planet2.png) no-repeat;
+    padding: 90px 196px 117px;
+    @media only screen and ( max-width: $screen-lg - 1){
+      width: 400px;
+      height: 296px;
+      background: url(../images/bg-planet2.png) no-repeat;
+      background-size: 400px 296px;
+      padding: 51px 110px 65px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      background: url(../images/bg-planet2-small.png) no-repeat;
+      background-size: cover;
+    }
+  }
+  &.planet3 {
+    width: 481px;
+    height: 355px;
+    bottom: 10.9%;
+    left: 47.8%;
+    z-index: 21;
+    background: url(../images/bg-planet3.png) no-repeat;
+    padding: 44px 113px 54px;
+    @media only screen and ( max-width: $screen-lg - 1){
+      width: 280px;
+      height: 207px;
+      background: url(../images/bg-planet3.png) no-repeat;
+      background-size: 280px 207px;
+      padding: 25px 66px 31px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      background: url(../images/bg-planet3-small.png) no-repeat;
+      background-size: cover;
+    }
+  }
+  &.planet4 {
+    width: 429px;
+    height: 367px;
+    bottom: 20.1%;
+    left: 70.2%;
+    background: url(../images/bg-planet4.png) no-repeat;
+    padding: 54px 57px 67px 127px;
+    @media only screen and ( max-width: $screen-lg - 1){
+      width: 260px;
+      height: 222px;
+      background: url(../images/bg-planet4.png) no-repeat;
+      background-size: 260px 222px;
+      padding: 32px 34px 40px 76px;
+    }
+    @media only screen and ( max-width: $screen-md - 1){
+      bottom: 25.1%;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      background: url(../images/bg-planet4-small.png) no-repeat;
+      background-size: cover;
+    }
+  }
+  @media only screen and ( max-width: $screen-lg - 1){
+    font-size: 30px;
+    line-height: 32px;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    position: static;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 10px;
+    overflow: hidden;
+    padding:0 !important;
+    border-radius: 26px;
+    font-size: 22px;
+    line-height: 24px;
+    z-index: 20 !important;
+  }
+}
+
+/* page introductory content styles */
+.intro-text {
+  color: $body-bg;
+  font-size: 18px;
+  line-height: 25px;
+  padding-bottom: 38px;
+  p {
+    margin: 0;
+  }
+  h1 {
+    margin: 0 0 35px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 38px;
+      line-height: 40px;
+      margin: 0 0 18px;
+    }
+  }
+  h2 {
+    font:26px/31px $title2-font-family;
+    color: $body-bg;
+    margin: 0 0 23px;
+    @media only screen and ( max-width: $screen-md - 1){
+      font-size: 23px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 14px;
+      line-height: 17px;
+      margin: 0 0 17px;
+    }
+  }
+  .image-holder {
+    margin: 0 auto -22px;
+    max-width: 535px;
+    img {
+      display: block;
+      width: 100%;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 auto -19px;
+    }
+  }
+  .holder {
+    padding: 0 30px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      padding: 0 12px 0 4px;
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    text-align: left;
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 13px;
+  }
+}
+
+.btn-down {
+  position: absolute;
+  bottom: 38px;
+  width: 37px;
+  height: 28px;
+  margin: 0 0 0 -19px;
+  text-decoration: none;
+  left: 50%;
+  opacity: 1;
+  z-index: 20;
+  transition:opacity 0.3s ease 0s;
+  span {
+    background: url(../images/bg-down.png) no-repeat;
+    display: block;
+    width: 37px;
+    height: 19px;
+    line-height: 1;
+    margin: 0 0 -9px;
+    animation: arrow 1s infinite;
+    -webkit-animation: arrow 1s infinite;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+  @media only screen and ( max-width: $screen-lg - 1){
+    bottom: 0;
+    z-index: 30;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    display: none;
+  }
+}
+
+.btn-down .a1 {
+  animation-delay:-0.4s;
+  -webkit-animation-delay:-0.4s;
+}
+
+.btn-down .a2 {
+  animation-delay:-0.2s;
+  -webkit-animation-delay:-0.2s;
+}
+
+.planet {
+  position: absolute;
+  z-index: 31;
+  &.planet1 {
+    top: 8.2%;
+    left: 12%;
+    @media only screen and ( max-width: $screen-md - 1){
+      left: 0;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      width: 223px;
+      height: 139px;
+      left: -100px;
+      top: 0.3%;
+    }
+  }
+  &.planet2 {
+    top: 53.7%;
+    left: 0;
+    @media only screen and ( max-width: $screen-sm - 1){
+      display: none;
+    }
+  }
+  &.planet3 {
+    top: 67.4%;
+    left: auto;
+    right:8px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      width: 53px;
+      height: 38px;
+      right: -25px;
+      top: 59.2%;
+    }
+  }
+}
+
+.editor-block {
+  @extend %clearfix;
+  position: relative;
+  padding: 77px 0 0;
+  h1 {
+    margin: 0 0 70px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 0 28px;
+      font-size: 39px;
+      line-height: 41px;
+    }
+  }
+  h2 {
+    color: $body-bg;
+    font:600 26px/28px $title2-font-family;
     text-transform: uppercase;
-    padding: 40px 0 60px 0;
-    margin-top: 20px;
-    background: url(../images/stars.png) center center, #ff6e74;
-    background: url(../images/stars.png) center center, -moz-linear-gradient(top,  #ff6e74 7%, #e2827d 70%, #f0bdbb 100%);
-    background: url(../images/stars.png) center center, -webkit-linear-gradient(top,  #ff6e74 7%,#e2827d 70%,#f0bdbb 100%);
-    background: url(../images/stars.png) center center, linear-gradient(to bottom,  #ff6e74 7%,#e2827d 70%,#f0bdbb 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6e74', endColorstr='#f0bdbb',GradientType=0 );
-    .push-down { margin-bottom: -250px; }
+    margin: 0 0 16px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 20px;
+      line-height: 22px;
+      margin: 0 0 16px;
+    }
+  }
+  .description {
+    padding-bottom: 84px;
+    .title {
+      display: none;
+      color: $body-bg;
+      padding: 0 0 18px 2px;
+      font-size: 14px;
+      line-height: 16px;
+      @media only screen and ( max-width: $screen-sm - 1){
+        display: block;
+      }
+    }
+    ol {
+      font-weight: normal;
+      li {
+        padding: 0 0 24px;
+        @media only screen and ( max-width: $screen-sm - 1){
+          padding: 0 0 17px;
+        }
+      }
+      @media only screen and ( max-width: $screen-md - 1){
+        font-size: 15px;
+        line-height: 17px;
+      }
+      @media only screen and ( max-width: $screen-sm - 1){
+        font-size: 13px;
+        padding: 0 20px 1px 2px;
+      }
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      padding-bottom: 33px;
+    }
+  }
+  .video-block {
+    text-align: right;
+    .video {
+      margin: 0 0 18px;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+      }
+      a {
+        .btn-play {
+          transition:background 0.3s ease 0s;
+        }
+        &:hover {
+          .btn-play {
+            background: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+      @media only screen and ( max-width: $screen-sm - 1){
+        margin: 0 0 12px;
+      }
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      text-align: left;
+      padding-bottom: 40px;
+    }
+  }
+  ol {
+    color: $body-bg;
+    padding: 4px 0 13px;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 46px 0 0;
+  }
+}
+
+.discover-link {
+  display: inline-block;
+  vertical-align: top;
+  color: $body-bg;
+  font:16px/18px $title2-font-family;
+  transition:color 0.3s ease 0s;
+  @media only screen and ( max-width: $screen-sm - 1){
+    font-size: 13px;
+    line-height: 15px;
+    margin: 0 0 0 2px;
+  }
+}
+
+.btn-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 73px;
+  height: 73px;
+  border-radius: 37px;
+  margin: -37px 0 0 -37px;
+  background: rgba(255, 255, 255, 0.8);
+  &:before {
+    position: absolute;
+    top: 22px;
+    left: 25px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 30px solid #ac234a;
+    border-bottom: 15px solid transparent;
+    content:'';
+    @media only screen and ( max-width: $screen-sm - 1){
+      border-top: 10px solid transparent;
+      border-left: 20px solid #ac234a;
+      border-bottom: 10px solid transparent;
+      top: 13px;
+      left: 16px;
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    width: 44px;
+    height: 44px;
+    margin: -22px 0 0 -22px;
+  }
+}
+
+.btn-edit {
+  display: inline-block;
+  vertical-align: top;
+  font:600 16px/18px $title2-font-family;
+  color: #2e2e2e;
+  text-decoration: none;
+  background: $body-bg;
+  padding: 11px 14px 11px 26px;
+  border: 7px solid #cbcbcb;
+  border-radius: 27px 0 0 27px;
+  position: relative;
+  margin: 0 0 0 -11px;
+  transition:color 0.3s ease 0s;
+  &:before{
+    position: absolute;
+    top: -8px;
+    right: -34px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    @include triangle(54px, #cbcbcb, right);
+    content:'';
+    @media only screen and ( max-width: $screen-sm - 1){
+      @include triangle(44px, #cbcbcb, right);
+      top: -7px;
+      right: -29px;
+    }
+  }
+  &:after{
+    position: absolute;
+    top: 0;
+    right: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    @include triangle(40px, $body-bg, right);
+    content:'';
+    @media only screen and ( max-width: $screen-sm - 1){
+      @include triangle(32px, $body-bg, right);
+      right: -16px;
+      top: -1px;
+    }
+  }
+  &:hover {
+    color: #cbcbcb;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    margin: 0 0 0 7px;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 9px 8px 7px 19px;
+  }
+}
+
+.code-block {
+  position: relative;
+  background: #000;
+  padding: 31px 0 6px;
+  float: left;
+  width: 100%;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    left: -9999px;
+    background: #000;
+    bottom: 0;
+    content:'';
+  }
+  &:after {
+    left: 100%;
+    right: -9999px;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 38px 0 20px;
+  }
+}
+
+.code-list {
+  overflow: hidden;
+  color: $body-bg;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -4px;
+  margin: 0;
+  @extend %clearfix;
+  dt {
+    display: inline-block;
+    vertical-align: middle;
+    width: 37.5%;
+    letter-spacing: 0;
+    padding: 0 10px 0 0;
+    font-weight: normal;
+    line-height: 24px;
+    margin: 0 0 27px;
+    mark {
+      color: #ac234a;
+    }
+    span {
+      display: inline-block;
+      vertical-align: top;
+      @media only screen and ( max-width: $screen-sm - 1){
+        padding: 0 15px 0 0;
+        background: #000;
+        position: relative;
+        z-index: 201;
+      }
+    }
+    &:before {
+      @media only screen and ( max-width: $screen-sm - 1){
+        position: absolute;
+        top: 50%;
+        margin: -3px 0 0;
+        left: 20px;
+        right: -10px;
+        height: 2px;
+        background: #33a457;
+        z-index: 200;
+        content:'';
+      }
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      display: block;
+      margin: 0 0 17px;
+      padding: 0 20px;
+      position: relative;
+      width: 100%;
+    }
+  }
+  dd {
+    letter-spacing: 0;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    width: 61.5%;
+    margin: 0 0 27px;
+    padding: 0 0 0 18%;
+    position: relative;
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      max-width: 129px;
+      margin:6px 0 0;
+      height: 2px;
+      background: #33a457;
+      content:'';
+      @media only screen and ( max-width: $screen-md - 1){
+        width: 25%;
+      }
+      @media only screen and ( max-width: $screen-sm - 1){
+        background: none;
+      }
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      display: block;
+      margin: 0 0 24px;
+      padding: 0 20px;
+      width: 100%;
+      line-height: 20px;
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    font-size: 13px;
+    line-height: 20px;
+    overflow: visible;
+    margin: 0 -10px;
+  }
+}
+
+.cloud-section {
+  position: relative;
+  padding: 115px 0 0;
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 58px 0 0;
+  }
+}
+
+.staff-block {
+  overflow: hidden;
+  padding: 0 0 171px;
+  .inner-page.red & {
+    padding: 0 0 34px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      padding: 0 0 23px;
+    }
+  }
+  h1 {
+    margin: 0 0 78px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 0 23px;
+      font-size: 38px;
+      line-height: 40px;
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 0 0 189px;
+  }
+}
+
+/* single post styles */
+.staff-col {
+  padding: 0 13px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 -3px 0 0;
+  .visual {
+    border-radius: 18px;
+    overflow: hidden;
+    margin: 0 0 20px;
+    img {
+      display: block;
+      width: 100%;
+    }
+    a {
+      text-decoration: none;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 0 14px;
+    }
+  }
+  .description {
+    padding: 0 20px 25px;
+    border-radius: 0 0 18px 18px;
+    background: $body-bg;
+    position: relative;
+    z-index: 2;
+    @media only screen and ( max-width: $screen-sm - 1){
+      padding: 0 13px 17px;
+    }
+  }
+  .more {
+    display: block;
+    color: $body-bg;
+    text-decoration: none;
+    padding: 41px 20px 17px;
+    background: #0b0e13;
+    border-radius: 18px;
+    margin: -25px 0 0;
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    transition:background 0.3s ease 0s;
+    span {
+      text-decoration: underline;
+      position: relative;
+      &:before {
+        content:'';
+        clear:both;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 20px;
+        height: 2px;
+        background: $white;
+        margin: 0 0 0 10px;
+        @media only screen and ( max-width: $screen-sm - 1){
+          height: 2px;
+          margin: 0 0 0 15px;
+          width: 13px;
+        }
+      }
+      &:after {
+        content:'';
+        clear:both;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 13px;
+        height: 13px;
+        margin: 4px 0 0 17px;
+        border: 1px solid $white;
+        transform: rotate(45deg);
+        border-width: 2px 2px 0 0;
+        @media only screen and ( max-width: $screen-sm - 1){
+          border-width: 1px 1px 0 0;
+          width: 8px;
+          height: 8px;
+          margin: 3px 0 0 20px;
+        }
+      }
+    }
+    &:hover {
+      background: #999;
+      span {
+        text-decoration: none;
+      }
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 11px;
+      line-height: 12px;
+      padding: 35px 13px 14px;
+    }
+  }
+  h3 {
+    font:600 25px/30px $title2-font-family;
+    color: $color-text;
+    margin: 0 0 22px;
+    a {
+      text-decoration: none;
+      color: $color-text;
+      transition:color 0.3s ease 0s;
+      &:hover {
+        color: $link-color;
+      }
+    }
+    @media only screen and ( max-width: $screen-md - 1){
+      font-size: 20px;
+      line-height: 24px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 16px;
+      line-height: 19px;
+      margin: 0 0 14px;
+    }
+  }
+  .author {
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+    color: $color-text;
+    a {
+      color: $color-text;
+      text-decoration: none;
+      transition:color 0.3s ease 0s;
+      &:hover {
+        color: $link-color;
+      }
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 11px;
+      line-height: 13px;
+    }
+  }
+  @media only screen and ( min-width: $screen-sm){
+    padding: 0 20px 31px !important;
+  }
+}
+.staff-content {
+  border-radius: 18px;
+  background: $body-bg;
+}
+
+/* carousel styles */
+.carousel {
+  position: relative;
+  margin: 0 0 63px;
+  .mask-holder {
+    margin: 0 -20px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 auto;
+      width: 231px;
+    }
+  }
+  .mask {
+    position: relative;
+    width: 100%;
+    overflow: visible !important;
+    .slideset {
+      float: left;
+      @media only screen and ( min-width: $screen-sm){
+        width: auto !important;
+        float: none !important;
+      }
+    }
+    .slide {
+      width: 231px;
+      float: left;
+      @media only screen and ( min-width: $screen-sm){
+        width: 33% !important;
+        display: inline-block;
+        float: none !important;
+        vertical-align: top;
+        margin: 0 -3px 0 0;
+      }
+    }
+    @media only screen and ( min-width: $screen-sm){
+      height: auto !important;
+    }
+  }
+  .btn-prev,
+  .btn-next {
+    display: none;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    margin: 0 0 43px;
+  }
+}
+
+.banner-info {
+  overflow: hidden;
+  margin: 0 0 -13px;
+  .banner-wrap {
+    @media only screen and ( max-width: $screen-sm - 1){
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .visual {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: -4px;
+    width: 33%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      order:2;
+      display: block;
+      width: 154px;
+      height: 180px;
+      margin: 0 auto 35px;
+    }
+  }
+  .subtitle {
+    font:600 25px/27px $title2-font-family;
+    text-transform: uppercase;
+    display: block;
+    text-shadow: 1px 2px 0 #000;
+    margin: 0 0 5px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 16px;
+      line-height: 25px;
+      margin: 0 0 3px;
+    }
+  }
+  .description {
+    color: $body-bg;
+    width: 67%;
+    padding-bottom: 181px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: -4px;
+    padding-left: 20px;
+    @media only screen and ( max-width: $screen-md - 1){
+      padding-bottom: 130px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      order:1;
+      display: block;
+      width: 100%;
+      margin-right: 0;
+      padding: 0 10px 28px;
+    }
+  }
+  h1 {
+    font-size: 64px;
+    line-height: 66px;
+    margin: 0;
+    @media only screen and ( max-width: $screen-lg - 1){
+      font-size: 46px;
+      line-height: 50px;
+    }
+    @media only screen and ( max-width: $screen-md - 1){
+      font-size: 40px;
+      line-height: 42px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 35px;
+      line-height: 42px;
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    margin: 0;
+    padding: 0 0 17px;
+  }
+}
+
+.sticker-bottom {
+  left: auto;
+  right: 30px;
+  z-index: 999;
+  bottom: -20px;
+  width: 131px;
+  height: 71px;
+  background: url(../images/label8.png) no-repeat;
+  @media only screen and ( max-width: $screen-sm - 1){
+    background: url(../images/label-mobile.png) no-repeat;
+    background-size: 33px 28px;
+    width: 33px;
+    height: 28px;
+    right:0;
+    left: auto;
+    bottom: -10px;
+  }
+}
+
+.content-block {
+  background: $body-bg;
+  padding: 63px 0 30px;
+  font-size: 19px;
+  line-height: 26px;
+  word-spacing: 1px;
+  color: $color-text;
+  @media only screen and ( max-width: $screen-md - 1){
+    font-size: 15px;
+    line-height: 21px;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    font-size: 12px;
+    line-height: 18px;
+    padding: 30px 0 27px;
+    word-spacing: 0;
+  }
+  .heading {
+    padding: 0 70px 29px 0;
+    h2 {
+      margin: 0 0 21px;
+      @media only screen and ( max-width: $screen-md - 1){
+        font-size: 29px;
+      }
+      @media only screen and ( max-width: $screen-sm - 1){
+        font-size: 25px;
+        line-height: 28px;
+        margin: 0 0 7px;
+      }
+    }
+    @media only screen and ( max-width: $screen-md - 1){
+      padding: 0 0 18px;
+    }
+  }
+  .visual {
+    margin: 0 0 33px;
+    img {
+      display: block;
+      width: 100%;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 0 13px;
+    }
+  }
+  h3 {
+    line-height: 1.4;
+    word-spacing: 2px;
+    margin-bottom: 22px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 15px;
+      line-height: 1.35;
+      margin-bottom: 25px;
+    }
+  }
+  p {
+    margin: 0 0 26px;
+    a {
+      font-weight: bold;
+      color: $color-text;
+    }
+    @media only screen and ( max-width: $screen-md - 1){
+      margin: 0 0 15px;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 0 26px;
+    }
+  }
+  .image-holder {
+    width: 49.6%;
+    img {
+      display: block;
+      width: 100%;
+    }
+    &.alignleft {
+      float: left;
+      margin: 4px 29px 0 0;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      width: auto;
+      &.alignleft {
+        float: none;
+        margin: -13px 0 15px;
+      }
+    }
+  }
+  .footer-info {
+    padding: 53px 0 6px;
+    overflow: hidden;
+    position: relative;
+    &:after {
+      content:'';
+      clear:both;
+      position: absolute;
+      top: 12px;
+      left: 2px;
+      right: 2px;
+      height: 2px;
+      background: #484848;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      padding: 33px 0 6px;
+      text-align: center;
+      &:after {
+        top: 4px;
+        height: 1px;
+      }
+    }
+  }
+}
+
+.data-list {
+  letter-spacing: -4px;
+  font-size: 19px;
+  line-height: 21px;
+  color: $color-text;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    padding: 0 37px 0 0;
+  }
+  .title {
+    display: block;
+    font-weight: normal;
+    padding: 0 0 6px;
+  }
+  .value {
+    display: block;
+    font-weight: bold;
+    a {
+      color: $color-text;
+      text-decoration: none;
+      transition:color 0.3s ease 0s;
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    font-size: 12px;
+    line-height: 15px;
+    .title {
+      padding: 0 0 3px;
+    }
+  }
+}
+
+.keys-block {
+  float: left;
+  padding-left: 35px;
+  @media only screen and ( max-width: $screen-md - 1){
+    padding-left: 10px;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    float: none;
+    display: inline-block;
+    text-align: left;
+    padding: 17px 5px 0;
+    min-width: 300px;
+  }
+  h3 {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+  }
+  ul {
+    @extend %listreset;
+    @media only screen and ( max-width: $screen-sm - 1){
+      overflow: hidden;
+    }
+    li {
+      float: left;
+      margin: 0 19px 0 0;
+      @media only screen and ( max-width: $screen-md - 1){
+        margin: 0 10px 0 0;
+      }
+      @media only screen and ( max-width: $screen-sm - 1){
+        margin: 0 13px 0 0;
+      }
+    }
+  }
+}
+
+.btns-list {
+  float: left;
+  letter-spacing: -4px;
+  padding-top: 2px;
+  @media only screen and ( max-width: $screen-sm - 1){
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+  }
+  li {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    width: 102px;
+    text-align: center;
+    margin: 0 65px 20px 0;
+    @media only screen and ( max-width: $screen-md - 1){
+      margin: 0 10px 20px 0;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      margin: 0 20px 20px;
+      &.mob-hidden {
+        display: none;
+      }
+    }
+  }
+  .title {
+    display: block;
+    text-transform: uppercase;
+    font:bold 16px/19px $title2-font-family;
+    color: $bg-dark;
+    padding: 0 4px 14px;
+    @media only screen and ( max-width: $screen-sm - 1){
+      font-size: 14px;
+      padding: 0 4px 13px;
+      line-height: 17px;
+    }
+  }
+  a {
+    display: block;
+    width: 89px;
+    height: 77px;
+    margin: 0 auto;
+    @include v-align;
+    border-radius: 39px;
+    text-decoration: none;
+    transition:background 0.3s ease 0s, opacity 0.3s ease 0s;
+    &.download {
+      background: #f1ca47;
+    }
+    &.save {
+      background: #7cb040;
+    }
+    &.feedback {
+      background: #c9accc;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+    @media only screen and ( max-width: $screen-sm - 1){
+      width: 80px;
+      height: 69px;
+      img {
+        width: 47px;
+        height: 47px;
+      }
+    }
+  }
+}
+
+.btn,
+.btn-default {
+  border: 5px solid $black;
+  padding: 5px 10px 3px;
+  min-width: 100px;
+  text-align: center;
+  border-radius: 20px;
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $black;
+  font: 600 16px/22px $title2-font-family;
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 2px 7px;
+    font-size: 12px;
+    line-height: 18px;
+    min-width: 73px;
+    border-width: 4px;
+  }
 }
 
 /* footer styles */
@@ -1153,18 +2567,11 @@ h1 {
     display:table-footer-group;
     height:1%;
     table-layout: fixed;
-    body.content-page & {
-      display: block;
-      height: auto;
-      overflow: initial;
-      box-shadow: 0px 500px 0px 500px #000;
-      -moz-box-shadow: 0px 500px 0px 500px #000;
-      -webkit-box-shadow: 0px 500px 0px 500px #000;
-    }
 }
 
 .footer-section {
   position: relative;
+  z-index: 2;
   &:before {
     position: absolute;
     top: -28px;
@@ -1249,7 +2656,6 @@ h1 {
   font-size: 12px;
   color: $white;
   line-height: 1.35;
-  p a { color: inherit; }
   @media only screen and ( max-width: $screen-sm - 1){
     float: none;
     width: 100%;
@@ -1338,6 +2744,44 @@ h1 {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+.language-select {
+  padding: 165px 0 63px;
+  line-height: 1.46;
+  font-family: "Ubuntu", Arial, Helvetica, sas-serif;
+  @media only screen and ( max-width: $screen-md - 1){
+    padding: 100px 0 63px;
+  }
+  @media only screen and ( max-width: $screen-sm - 1){
+    padding: 0 0 23px;
+    line-height: 20px;
+  }
+
+  ul {
+    margin-top: 100px;
+    @media only screen and ( max-width: $screen-md - 1){
+      margin-top: 0px;
+      text-align: center;
+    }
+    li {
+      font-size: 26px;
+      line-height: 52px;
+      img {
+        display: inline;
+        width: 26px;
+        height: 26px;
+      }
+      a {
+        text-decoration: none;
+        color: #6e1730;
+      }
+      a:hover, a:focus {
+        color: #ad244b;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 /* ---------------------------------------------------------
