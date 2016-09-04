@@ -1,3 +1,19 @@
+@mixin gradient($first-color, $second-color) {
+  background: $first-color;
+  background: -moz-linear-gradient(top,  $first-color 0%, $second-color 100%);
+  background: -webkit-linear-gradient(top,  $first-color 0%, $second-color 100%);
+  background: linear-gradient(to bottom,  $first-color 0%, $second-color 100%);
+}
+
+@mixin gradient-diagonal ($first-color, $second-color) {
+  background: $first-color;
+  background: -moz-linear-gradient(-45deg,  $first-color 0%, $second-color 100%);
+  background: -webkit-linear-gradient(-45deg,  $first-color 0%, $second-color 100%);
+  background: linear-gradient(135deg,  $first-color 0%,$second-color 100%);
+
+  
+}
+
 // vertical align el inside parent with fixed height/min-height
 // usage 
 // html - .parent>.child
@@ -25,6 +41,21 @@
   }
 }
 
+
+@keyframes arrow{
+  0% {opacity:1}
+  40% {opacity:0}
+  80% {opacity:1}
+  100% {opacity:1}
+}
+
+@-webkit-keyframes arrow{
+  0% {opacity:1}
+  40% {opacity:0}
+  80% {opacity:1}
+  100% {opacity:1}
+}
+
 // vertical align a pair of child el inside parent
 // usage 
 // html - .post>.image+.text
@@ -45,7 +76,6 @@
     width: $width2;
   }
 }
-
 
 // vertical align el
 // usage: @include vertical-align-el;

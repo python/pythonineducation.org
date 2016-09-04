@@ -14,6 +14,7 @@
       {% block css %}{% endblock %}
       <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Poppins:400,600,700' rel='stylesheet' type='text/css'>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
       <script type="text/javascript">
       window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
@@ -24,15 +25,18 @@
       <script src="/js/modernizr.js"></script>
       <![endif]-->
   </head>
-  <body class="home {% block body_class %}{% endblock %}">
+  <body class="{% block body_class %}home{% endblock %}">
+    <!-- main container of all the page elements -->
     <div id="wrapper">
+      <div class="wrapper-holder">
       {% block header %}
+        <!-- header of the page -->
         <header id="header" class="header">
           <nav class="navbar navbar-default">
             <div class="header-holder">
               <div class="container-fluid">
                 <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -41,18 +45,18 @@
                   <!-- page logo -->
                   <a class="navbar-brand" href="/en/"><img alt="Python In Education" src="/images/logo.png"></a>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="main-menu">
                   <!-- main navigation of the page -->
                   <ul class="nav navbar-nav">
                     <li><a href="/en/#learn">learn</a></li>
                     <li><a href="/en/#teach">teach</a></li>
                     <li><a href="/en/#build">build</a></li>
-                    <li><a href="/en/microbit">micro:bit</a></li>
-                    <li><a href="#">raspberry_pi</a></li>
+                    {% block microbit_menu %}<li><a href="/en/microbit">micro:bit</a></li>{% endblock %}
+                    {% block raspberrypi_menu %}<li><a href="/en/raspberrypi">raspberry pi</a></li>{% endblock %}
                   </ul>
                   <!-- switch language link -->
                   <div class="link-holder">
-                    <a class="language-link" href="#"><img alt="english" src="/images/bg-flag.png"><span>Change language</span></a>
+                    <a class="language-link" href="/"><img alt="english" src="/images/language.png" title="Change language"><span>Change language</span></a>
                   </div>
                 </div>
               </div>
@@ -60,19 +64,14 @@
           </nav>
         </header>
       {% endblock %}
-
-      {% block subnav %}{% endblock subnav %}
-
-      <main role="main" id="main">
-      {% block content %}{% endblock %}
-      </main>
-
-      {% block footer_banner %}{% endblock footer_banner %}
-
+        <!-- contain main content of the page -->
+        <main role="main" id="main">
+          {% block content %}{% endblock %}
+        </main>
+      </div>
     </div>
-
-
     {% block footer %}
+      <!-- footer of the page -->
       <div id="footer">
         <div class="footer-section">
           <div class="footer-frame">

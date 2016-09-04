@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+{% block secret %}{% endblock %}
+-->
+<html>
+  <head>
+      <title>{% block title %}Python In Education - {% endblock %} {{ page.title }}</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="X-Clacks-Overhead" content="GNU John Pinner">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/bootstrap-extended.css">
+      <link rel="stylesheet" href="/css/main.css">
+      {% block css %}{% endblock %}
+      <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Poppins:400,600,700' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+      <script type="text/javascript">
+      window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')
+      </script>
+      <script src="/js/bootstrap.min.js"></script>
+      {% block javascript %}{% endblock %}
+      <!--[if lt IE 9]>
+      <script src="/js/modernizr.js"></script>
+      <![endif]-->
+  </head>
+  <body class="{% block body_class %}home{% endblock %}">
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <div class="wrapper-holder">
+      {% block header %}
+        <!-- header of the page -->
+        <header id="header" class="header">
+          <nav class="navbar navbar-default">
+            <div class="header-holder">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <!-- page logo -->
+                  <a class="navbar-brand" href="/"><img alt="Python In Education" src="/images/logo.png"></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+      {% endblock %}
+        <!-- contain main content of the page -->
+        <main role="main" id="main">
+            {{ page.content }}
+        </main>
+      </div>
+    </div>
+    {% block footer %}
+      <!-- footer of the page -->
+      <div id="footer">
+        <div class="footer-section">
+          <div class="footer-frame" style="padding: 32px 0 0 0">
+            <div class="container-fluid">
+            <div class="col-copy">
+              <a href="https://www.python.org/psf-landing/" class="logo-partner"><img alt="Python Software Foundation" src="/images/psf_logo.jpg"></a>
+              <div class="copy">
+                <p>&copy; 2016 The Python Software Foundation. <br>All rights reserved.</p>
+                <p>Design by <a href="https://www.blanc.ltd.uk/">Blanc</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+  </body>
+  <!-- Python Powered! -->
+</html>
