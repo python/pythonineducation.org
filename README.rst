@@ -21,7 +21,7 @@ This site uses wok_. To install wok and other dependencies, run
 wok builds the site by assembling several components:
 
 * Pages are found in ``content/``. Pages may be HTML, Markdown_ or reStrcturedText_, and contain some YAML metadata.
-* Statuc files are found in ``media/``.
+* Static files are found in ``media/``.
 * The various jinja2_ templates for pages can be found in ``templates/``.
 
 To build the site, run ``make build``. This pulls together all the components
@@ -33,7 +33,7 @@ Windows users: you need to run the (extensionless) ``wok`` script in
 Alternatively, if you run ``make serve``, wok will build the site, serve the
 built site on port 8000, and watch for changes.
 
-Windows users: you ned to run the (extensionless) ``work`` script with the
+Windows users: you need to run the (extensionless) ``work`` script with the
 ``--serve`` parameter in ``c:\pythonxx\scripts``. e.g.
 ``py -2 c:\python27\scripts\wok --serve``.
 
