@@ -31,7 +31,7 @@ Windows users: you need to run the (extensionless) ``wok`` script in
 ``c:\pythonxx\scripts``. e.g. ``py -2 c:\python27\scripts\wok``.
 
 Alternatively, if you run ``make serve``, wok will build the site, serve the
-built site on port 8000, and watch for changes.
+built site on port 8000, and check for changes.
 
 Windows users: you ned to run the (extensionless) ``work`` script with the
 ``--serve`` parameter in ``c:\pythonxx\scripts``. e.g.
@@ -77,7 +77,7 @@ works:
 * If in doubt, just look at what happens in the English version of the site and
   adapt to the desired language.
 
-Deployment
+Deployment:
 ~~~~~~~~~~
 
 The site is hosted as a Project Page on GitHub Pages, and so it is the
