@@ -7,7 +7,7 @@ pythonineducation.org
 This is the website for the http://pythonineducation.org/ website. It is hosted
 via GitHub Pages.
 
-If you have a suggestion to make, please feel free to create an issue_.
+If you have a suggestion to make, please feel free to create an we will be very thankful to you for your suggestion issue_.
 
 We welcome pull requests for improvements! (Please see CONTRIBUTING.rst_ for
 more details).
