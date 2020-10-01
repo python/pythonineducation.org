@@ -6,21 +6,21 @@
    ---------------------------------------------------------*/
 @keyframes arrow {
   0% {
-    opacity: 1; }
+    opacity: 0.9; }
   40% {
     opacity: 0; }
   80% {
-    opacity: 1; }
+    opacity: 0.9; }
   100% {
     opacity: 1; } }
 
 @-webkit-keyframes arrow {
   0% {
-    opacity: 1; }
+    opacity: 0.9; }
   40% {
     opacity: 0; }
   80% {
-    opacity: 1; }
+    opacity: 0.9; }
   100% {
     opacity: 1; } }
 
@@ -101,7 +101,7 @@ body {
           font-size: 38px;
           line-height: 37px;
           margin: 0 0 38px;
-          color: #000;
+          color: #111;
           padding: 0 20px;
           text-align: center; } }
     @media only screen and (max-width: 767px) {
@@ -131,20 +131,18 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     background: #88c4e4;
     background: -moz-linear-gradient(-45deg, #88c4e4 0%, #93c45a 100%);
     background: -webkit-linear-gradient(-45deg, #88c4e4 0%, #93c45a 100%);
     background: linear-gradient(135deg, #88c4e4 0%, #93c45a 100%);
-    opacity: 0.4;
+    opacity: 0.5;
     content: ''; }
   body.purple-blue .cloud-section {
     background: url(../images/bg-clouds.png) no-repeat;
     background-size: 100% auto; }
     body.purple-blue .cloud-section .plane-image {
       position: absolute;
-      bottom: 18.1%;
+      bottom: 18.156%;
       right: 62px; }
       @media only screen and (max-width: 767px) {
         body.purple-blue .cloud-section .plane-image {
@@ -268,7 +266,7 @@ td,
 th {
   padding: 5px;
   text-align: left;
-  border: 1px solid #ccc; }
+  border: 1px solid #cdcdcd; }
 
 mark {
   background: none;
@@ -313,7 +311,7 @@ h1 {
   color: #fff;
   text-align: center;
   margin: 0 0 20px;
-  text-shadow: 3px 3px 0 #000; }
+  text-shadow: 3px 3px 0 #111; }
   @media only screen and (max-width: 1023px) {
     h1 {
       font-size: 60px;
@@ -358,7 +356,7 @@ h3 {
   left: 0;
   right: 0;
   z-index: 300;
-  background: #000; }
+  background: #111; }
   #header:before {
     position: absolute;
     bottom: -26px;
@@ -1233,7 +1231,7 @@ h3 {
   position: absolute;
   font: 600 56px/55px "Poppins", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  text-shadow: 2px 2px 0 #000;
+  text-shadow: 2px 2px 0 #111;
   z-index: 20; }
   .btn-planet a {
     display: block;
@@ -1657,7 +1655,7 @@ h3 {
 
 .code-block {
   position: relative;
-  background: #000;
+  background: #111;
   padding: 31px 0 6px;
   float: left;
   width: 100%; }
@@ -1666,7 +1664,7 @@ h3 {
     top: 0;
     right: 100%;
     left: -9999px;
-    background: #000;
+    background: #111;
     bottom: 0;
     content: ''; }
   .code-block:after {
@@ -1700,7 +1698,7 @@ h3 {
       @media only screen and (max-width: 767px) {
         .code-list dt span {
           padding: 0 15px 0 0;
-          background: #000;
+          background: #111;
           position: relative;
           z-index: 201; } }
     @media only screen and (max-width: 767px) {
@@ -1979,7 +1977,7 @@ h3 {
     font: 600 25px/27px "Poppins", Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     display: block;
-    text-shadow: 1px 2px 0 #000;
+    text-shadow: 1px 2px 0 #111;
     margin: 0 0 5px; }
     @media only screen and (max-width: 767px) {
       .banner-info .subtitle {
@@ -2231,7 +2229,7 @@ h3 {
     display: block;
     text-transform: uppercase;
     font: bold 16px/19px "Poppins", Arial, Helvetica, sans-serif;
-    color: #000;
+    color: #111;
     padding: 0 4px 14px; }
     @media only screen and (max-width: 767px) {
       .btns-list .title {
@@ -2277,7 +2275,7 @@ h3 {
 
 .btn,
 .btn-default {
-  border: 5px solid #000;
+  border: 5px solid #111;
   padding: 5px 10px 3px;
   min-width: 100px;
   text-align: center;
@@ -2286,7 +2284,7 @@ h3 {
   vertical-align: top;
   text-decoration: none;
   text-transform: uppercase;
-  color: #000;
+  color: #111;
   font: 600 16px/22px "Poppins", Arial, Helvetica, sans-serif; }
   @media only screen and (max-width: 767px) {
     .btn,
@@ -2317,7 +2315,7 @@ h3 {
     content: ''; }
 
 .footer-frame {
-  background: #000;
+  background: #111;
   padding: 64px 0 103px;
   font-family: "Ubuntu", Arial, Helvetica, sans-serif; }
   .footer-frame .logo-footer {
