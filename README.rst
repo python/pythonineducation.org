@@ -3,7 +3,7 @@ pythonineducation.org
 
 .. image:: https://travis-ci.org/python/pythonineducation.org.svg?branch=master
        :target: https://travis-ci.org/python/pythonineducation.org
-
+-> For the better understanding go to http://pythonineducation.org/ website.
 This is the website for the http://pythonineducation.org/ website. It is hosted
 via GitHub Pages.
 
