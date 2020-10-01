@@ -21,7 +21,7 @@ This site uses wok_. To install wok and other dependencies, run
 wok builds the site by assembling several components:
 
 * Pages are found in ``content/``. Pages may be HTML, Markdown_ or reStrcturedText_, and contain some YAML metadata.
-* Statuc files are found in ``media/``.
+* static files are found in ``media/``.
 * The various jinja2_ templates for pages can be found in ``templates/``.
 
 To build the site, run ``make build``. This pulls together all the components
