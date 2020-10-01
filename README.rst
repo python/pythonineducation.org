@@ -5,7 +5,7 @@ pythonineducation.org
        :target: https://travis-ci.org/python/pythonineducation.org
 
 This is the website for the http://pythonineducation.org/ website. It is hosted
-via GitHub Pages.
+via GitHub.com Pages.
 
 If you have a suggestion to make, please feel free to create an issue_.
 
